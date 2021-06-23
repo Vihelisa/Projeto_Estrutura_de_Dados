@@ -10,6 +10,13 @@ while True:
     menuPrincipal = functions.menuPrincial()
     if menuPrincipal == '0':
         break
+
+    elif menuPrincipal == '1':
+        list_dados_cadastrados = dadoscadastrados.DadosCadastrados()
+        cadastro = functions.CadastrarArtista(list_dados_cadastrados)
+        list_dados_cadastrados.append(cadastro)
+        print(list_dados_cadastrados)
+
     elif menuPrincipal == '4':
         while True:
             list_dados_cadastrados = dadoscadastrados.DadosCadastrados()
