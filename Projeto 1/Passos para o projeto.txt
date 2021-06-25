@@ -1,0 +1,2 @@
+1- Fazer a parte vizual que aparecerá para o 
+usuário no terminal.
