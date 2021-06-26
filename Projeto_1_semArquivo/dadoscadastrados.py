@@ -34,6 +34,3 @@ def DadosCadastrados():
         },
     ]
     return list_dados_cadastrados
-
-
-  

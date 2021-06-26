@@ -1,4 +1,4 @@
-import dadoscadastrados
+from dadoscadastrados import *
 
 def menuPrincial():
     print(
@@ -81,7 +81,7 @@ def CadastrarArtista(list_dados_cadastrados):
         cadastro['Quantidade de composições'] = int(input('Adcione a quantidade de composições: '))
         cadastro['Valor mínimo do cachê'] = float(input('Valor Mínimo Cache: R$'))
         
-        list_dados_cadastrados = dadoscadastrados.DadosCadastrados()
+        list_dados_cadastrados = DadosCadastrados()
         list_dados_cadastrados.append(cadastro.copy())
         op = str(input('Deseja continuar artistas? [S/N] ')).upper()
         if op == 'N':
