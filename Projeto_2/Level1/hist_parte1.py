@@ -1,3 +1,6 @@
+from Level1 import funcoes1
+
+
 parag1 = str('''
             Você abre os olhos...
 ''')
@@ -51,12 +54,13 @@ parag9 = str('''
 ''')
 
 
-historia_parte1 = [parag1, parag2, parag3, parag4, parag5, parag6, parag7, parag8, parag9]
-
 pensamento = str('''
             Um pouco melhor da dor de cabeça e com os sentidos começando a aparecer, 
             você começa a pensar um pouco melhor.\n
 ''')
+
+historia_parte1 = [parag1, parag2, parag3, parag4, parag5, parag6, parag7, parag8, parag9, pensamento]
+
 
 decisao = str('''
             O que você está pensando?
@@ -70,15 +74,45 @@ decisao = str('''
 parag10 = str('''
             É muito difícil de lembrar...
             Aliás você não lembra de absolutamente nada... lembra?
-            Enão uma pergunta começa a ecoar dentro de você...
+            Então uma pergunta começa a ecoar dentro de você...
 ''')
 
-def pensando_no_nome(lista) :
-    nome = lista[0]
-    str(f'''
+def quem_e_voce():
+    lista_nome = []
+    print('''
+                =============================================
+                =                                           =
+                =                                           =
+                =             "QUEM É VOCÊ????"             =
+                =                                           =
+                =                                           =
+                =============================================
+    
+    ''')
+    nome = input("Escreva seu nome:\n")
+    print('''
+                \n
+                SERÁ QUE É??!!
+    ''')
+    return nome
+
+
+def pensando_no_nome() :
+    lista_nomes = funcoes1.lendo_nome_arq()
+    nome = lista_nomes[0].replace("\n", '')
+    pensa = str(f'''
                 Você chega a pensar em {nome}...
                 mas será que esse é o seu verdadeiro nome?
                 Acho que a única coisa que pode fazer agora é acreditar que 
                 o primeiro nome que apareceria na cabeça de uma pessoa sem memória
                 seria "O PRÓPRIO NOME".
     ''')
+    return pensa
+
+decisao_acao1 = str('''
+            O que você faz?
+            
+            a- "Sentar-se na cama e observar mehor o lugar?"
+            w- "Tentar levantar e andar um pouco?"
+            s- "Deitar-se novamente e respirar um pouco antes de ver o local?"
+''')
