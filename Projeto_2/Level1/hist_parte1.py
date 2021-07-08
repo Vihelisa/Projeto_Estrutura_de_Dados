@@ -112,7 +112,7 @@ def pensando_no_nome() :
 decisao_acao1 = str('''
             O que você faz?
             
-            a- "Sentar-se na cama e observar mehor o lugar?"
+            a- "Sentar-se na cama e observar melhor o lugar?"
             w- "Tentar levantar e andar um pouco?"
             s- "Deitar-se novamente e respirar um pouco antes de ver o local?"
 ''')

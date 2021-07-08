@@ -1,6 +1,6 @@
 from time import sleep
 
-from Level1 import dec_w
+from Level1 import dec_w, funcoes1
 
 
 def mecanica_0():
@@ -14,6 +14,7 @@ def mecanica_0():
             num = 0
             while True:
                 print(lista_parag[num])
+                print("Vida:", funcoes1.mostrando_vida())
                 troca = input('Tecle "enter" para avançar')
                 sleep(1)
                 num=num+1
@@ -39,7 +40,11 @@ def mecanica_0():
                 if lista_paragr[numb] == lista_paragr[-1]:
                     print(lista_paragr[-1])
                 break
-            print("           Você tem menos 1 de vida")
+            print("           Você tem menos 2 de vida")
+            valor_dano = 2
+            lista_vida = funcoes1.danos_vida(valor_dano)
+            funcoes1.reescrevendo_vida(lista_vida)
+            print("Vida:", lista_vida)
         break
             
 

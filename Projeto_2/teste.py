@@ -1,20 +1,30 @@
-segure = ["s", "e", "g", "u", "r", "e"]
+from Level1.funcoes1 import lendo_nome_arq
+import os
 
-i = 0
-j = 2
+PATH = "Arquivos"
+VIDA_ARQ = "vida.txt"
+valor_dano = 2
 
+
+caminho = os.path.join(PATH, VIDA_ARQ)
+with open(caminho, "r") as arq:
+    lista_pontos_vida = []
+    for ponto in arq:
+        ponto = ponto.replace("\n", "")
+        lista_pontos_vida.append(ponto)
+len_final = len(lista_pontos_vida) - 2
 while True:
-    print(segure[i])
-    resp = input("Digite as letras sem espaço \n")
-    print(segure[j])
-    respp = input("Digite as letras sem espaço \n")
-    if resp == segure[i]:
-        pass
-    if respp == segure[j]:
-        print("ACERTOU")
+    lista_pontos_vida.remove('.')
+    if len(lista_pontos_vida) == len_final:
         break
-        
-    else:
-        print("ERROU")
-        i = i+1
-        j = j+1
+print(lista_pontos_vida)
+
+    
+'''while remover == valor_dano:
+print(lista_pontos_vida)
+remover = remover + 1
+lista_pontos_vida.remove('.')
+print(lista_pontos_vida)
+remover = remover+1
+lista_pontos_vida'''
+

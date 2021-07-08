@@ -8,6 +8,7 @@ def hist1():
     i = 0
     while True:
         print(hist_parte1.historia_parte1[i])
+        print("Vida:", funcoes1.mostrando_vida())
         troca = input('Tecle "enter" para avançar')
         sleep(1)
         i=i+1
@@ -16,6 +17,7 @@ def hist1():
             break
 
 def pensamento1():
+    print("Vida:", funcoes1.mostrando_vida())
     input('Tecle "enter" para avançar')
     print(hist_parte1.decisao)
     resp = input('Responda e tecle "enter" para avançar\n').lower()
@@ -27,8 +29,10 @@ def pensamento1():
         print("""           O que aconteceu comigo?""")
     elif resp == "d":
         print("""           Como eu vim parar aqui?""")
+    print("Vida:", funcoes1.mostrando_vida())
     input('Tecle "enter" para avançar')
     print(hist_parte1.parag10)
+    print("Vida:", funcoes1.mostrando_vida())
     input('Tecle "enter" para avançar')
     
 def nome1():
@@ -43,9 +47,14 @@ def movimento_1():
     resp = input('Responda e tecle "enter" para avançar\n').lower()
     if resp == "a":
         dec_a.acao_1a()
+        print("Vida:", funcoes1.mostrando_vida())
+        input('Tecle "enter" para avançar')
     elif resp == "w":
         dec_w.acao_1w()
         mecanica.mecanica_0()
     elif resp == "s":
-        print("""           O que aconteceu comigo?""")
-    
+        print(dec_s.parag1)
+        input('Tecle "enter" para avançar')
+        print(dec_s.parag2)
+        input('Tecle "enter" para avançar')
+        

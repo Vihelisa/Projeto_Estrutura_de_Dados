@@ -8,6 +8,7 @@ from Level1 import run_level1
 #Criando e verificando se arquivo e pasta existem:
 verificando_arq.criando_pasta_arquivos()
 verificando_arq.cria_verifica_arq_nome()
+verificando_arq.cria_verifica_arq_vida()
 
 #Menu para começar o jogo:
 menu.entrando_no_jogo()
