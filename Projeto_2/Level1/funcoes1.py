@@ -50,4 +50,14 @@ def reescrevendo_vida(lista_vida):
     with open(caminho, "w") as arq:
         for ponto in lista_vida:
             arq.write(str(ponto) + "\n")
+
+def movimentacao():
+    lista_movimento = ['_','_','_','_','_','_','_','_','_','&']
+    print(lista_movimento)
+    paco = input('Aperte "enter" para andar')
+    while '&' not in lista_movimento[0]:
+        lista_movimento.append('_')
+        lista_movimento.pop(0)
+        print(lista_movimento)
+        paco = input('')
         

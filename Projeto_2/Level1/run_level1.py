@@ -57,4 +57,28 @@ def movimento_1():
         input('Tecle "enter" para avançar')
         print(dec_s.parag2)
         input('Tecle "enter" para avançar')
-        
+
+def quartinho():
+    i = 0
+    while True:
+        print(hist_parte1.lista_quarto[i])
+        print("Vida:", funcoes1.mostrando_vida())
+        input('Tecle "enter" para avançar')
+        sleep(1)
+        i=i+1
+        if hist_parte1.lista_quarto[i] == hist_parte1.lista_quarto[-1]:
+            print(hist_parte1.lista_quarto[-1])
+            break
+
+def movimento_2():
+    input('Tecle "enter" para avançar')
+    print(hist_parte1.decisao_acao2)
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == "a":
+        funcoes1.movimentacao()
+    elif resp == "w":
+        funcoes1.movimentacao()
+    elif resp == "s":
+        funcoes1.movimentacao()
+    elif resp == "d":
+        funcoes1.movimentacao()

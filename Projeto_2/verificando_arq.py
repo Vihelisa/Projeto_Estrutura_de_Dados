@@ -4,6 +4,8 @@ import os
 PATH = "Arquivos"
 NOME_ARQ = "nome.txt"
 VIDA_ARQ = "vida.txt"
+MOCHILA_ARQ = "mochila.txt"
+CINTO_ARQ = "cinto.txt"
 
 def criando_pasta_arquivos():
     if os.path.exists(PATH):
@@ -29,5 +31,19 @@ def cria_verifica_arq_vida():
         with open(caminho, "w") as arq :
             for ponto in lista_vida:
                 arq.write(str(ponto) + "\n")
+
+def cria_verifica_arq_mochila():
+    caminho = os.path.join(PATH, MOCHILA_ARQ)
+    if os.path.isfile(caminho):
+        pass
+    else:
+        open(caminho, "w")
+
+def cria_verifica_arq_cinto():
+    caminho = os.path.join(PATH, CINTO_ARQ)
+    if os.path.isfile(caminho):
+        pass
+    else:
+        open(caminho, "w")
 
     

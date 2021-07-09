@@ -116,3 +116,42 @@ decisao_acao1 = str('''
             w- "Tentar levantar e andar um pouco?"
             s- "Deitar-se novamente e respirar um pouco antes de ver o local?"
 ''')
+
+quartinho1 = str('''
+            Olhando melhor agora você consegue ver como esse "quarto" é pequeno.
+            Ele é um pequeno quadrado com uma cama bem velha no canto inferior direito e 
+            algo que parece um armário no inferior esquerdo.
+''')
+
+quartinho2 = str('''
+            Na parte superior há uma porta bem ao meio e nas extremidades algo
+            que já foi uma escrivaninha, na direira e um monte de intulho
+            na esquerda.
+''')
+
+quartinho3 = str('''
+            É tudo tão velho e sujo que não dá pra imaginar que lugar é esse!
+            Ou melhor, que lugar FOI esse.
+''')
+
+quartinho4 = str('''
+            ===========    ==========
+            =####                 &&=
+            =                       =
+            =                       =
+            =                       =
+            =                       =
+            =||||               [  ]=
+            =========================
+''')
+
+lista_quarto = [quartinho1, quartinho2, quartinho3, quartinho4]
+
+decisao_acao2 = str('''
+            Pra onde deseja ir?
+            
+            a- Armário
+            w- Escrivaninha
+            s- Entulho
+            d- Porta
+''')
