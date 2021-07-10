@@ -9,7 +9,7 @@ def hist1():
     while True:
         print(hist_parte1.historia_parte1[i])
         print("Vida:", funcoes1.mostrando_vida())
-        troca = input('Tecle "enter" para avançar')
+        input('Tecle "enter" para avançar')
         sleep(1)
         i=i+1
         if hist_parte1.historia_parte1[i] == hist_parte1.historia_parte1[-1]:
@@ -38,6 +38,7 @@ def pensamento1():
 def nome1():
     nome = hist_parte1.quem_e_voce()
     funcoes1.guardando_nome(nome)
+    input('Tecle "enter" para avançar')
     pensa = hist_parte1.pensando_no_nome()
     print(pensa)
     input('Tecle "enter" para avançar')
@@ -54,8 +55,10 @@ def movimento_1():
         mecanica.mecanica_0()
     elif resp == "s":
         print(dec_s.parag1)
+        print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
         print(dec_s.parag2)
+        print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
 
 def quartinho():
@@ -76,6 +79,8 @@ def movimento_2():
     resp = input('Responda e tecle "enter" para avançar\n').lower()
     if resp == "a":
         funcoes1.movimentacao()
+        dec_a.armario()
+        dec_a.decisao_armario()
     elif resp == "w":
         funcoes1.movimentacao()
     elif resp == "s":

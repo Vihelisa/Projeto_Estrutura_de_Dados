@@ -1,14 +1,17 @@
-from time import time
-from typing import List
-from time import sleep
+import os
 
-lista_movimento = ['_','_','_','_','_','_','_','_','_','&']
+MOCHILA_ARQ = "mochila.txt"
+CINTO_ARQ = "cinto.txt"
+PATH = "Arquivos"
+
+lista_itens_cinto = []
+
+num_max_item = 4
+
+item = "Faca"
+
+#Verificar quantos objetos tem no cinto:
 
 
-print(lista_movimento)
-paco = input('Aperte "enter" para andar')
-while '&' not in lista_movimento[0]:
-    lista_movimento.append('_')
-    lista_movimento.pop(0)
-    print(lista_movimento)
-    paco = input('')
+
+

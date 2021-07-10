@@ -123,10 +123,17 @@ quartinho1 = str('''
             algo que parece um armário no inferior esquerdo.
 ''')
 
+perceber_cinto = str(f'''
+               Ao sair da cama você percebe que estranhamente há um cinto 
+               preso em suas roupas, aliás roupas que não parecem ser suas, 
+               mas não dá pra ter certeza. Também há uma mochila ao lado da
+               cama que poderá ser útil e que você nem pensa e logo a pega.
+''')
+
 quartinho2 = str('''
-            Na parte superior há uma porta bem ao meio e nas extremidades algo
-            que já foi uma escrivaninha, na direira e um monte de intulho
-            na esquerda.
+            Na parte superior há uma porta estreita bem ao meio do quarto e 
+            nas extremidades algoque já foi uma escrivaninha, na direira e 
+            um monte de intulho na esquerda.
 ''')
 
 quartinho3 = str('''
@@ -145,7 +152,7 @@ quartinho4 = str('''
             =========================
 ''')
 
-lista_quarto = [quartinho1, quartinho2, quartinho3, quartinho4]
+lista_quarto = [quartinho1, perceber_cinto, quartinho2, quartinho3, quartinho4]
 
 decisao_acao2 = str('''
             Pra onde deseja ir?

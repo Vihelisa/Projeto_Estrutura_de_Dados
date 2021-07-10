@@ -1,5 +1,5 @@
 parag1 = str('''
-            Você olha para o teto, ele parece quereer cair. 
+            Você olha para o teto, ele parece querer cair. 
             Há uma grande quantidade de mofo e parece estar descascando também.
             No entando a única coisa que você consgue pensar é em descansar 
             um pouco, já sua cabeça parece está prestes a explodir. 
