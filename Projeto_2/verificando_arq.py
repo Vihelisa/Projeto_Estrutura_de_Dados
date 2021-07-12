@@ -21,7 +21,7 @@ def cria_verifica_arq_nome():
         open(caminho, "w")
 
 def cria_verifica_arq_vida():
-    lista_vida = [".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
+    lista_vida = ["%", "%", "%", "%", "%", "%", "%", "%", "%", "%"]
     caminho = os.path.join(PATH, VIDA_ARQ)
     if os.path.isfile(caminho):
         with open(caminho, "w") as arq :

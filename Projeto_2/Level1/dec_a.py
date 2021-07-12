@@ -37,6 +37,7 @@ def armario():
             bem alto, porém estranhamente estreito, bem empoeirado, quebrado
             e com mofo. Há duas portas.
      ''')
+     print("Vida:", funcoes1.mostrando_vida())
      input('Tecle "enter" para avançar')
      print('''
              O QUE VOCÊ FAZ?
@@ -55,11 +56,14 @@ def decisao_armario():
                Por mais velho que este móvel seja, ele é muito mais pesado do que parece, 
                te fazendo soltar a porta que cai com tudo ao chão.
           ''')
+          print("Vida:", funcoes1.mostrando_vida())
           input('Tecle "enter" para avançar')
           print(escolha_gavetas_arm)
+          print("Vida:", funcoes1.mostrando_vida())
           respost = input('Responda e aperte "enter" para continuar\n').lower()
           escolha_gaveta_arm(respost)
      elif resp == 's':
+          funcoes1.movimentacao()
           print("Você saiu da sala")
 
 
@@ -68,15 +72,9 @@ def escolha_gaveta_arm(respost):
           if respost == 'a':
                print('''           Ao abrir a gaveta, não há nada nela.''')
           elif respost == 'w':
-               faca = 'Faca'
-               print('''           Você achou uma Faca''')
-               print(itens.faca)
-               funcoes1.escolha_onde_guardar(faca)
+               itens.achando_faca()
           elif respost == 'd':
-               cura2 = 'Cura-2'
-               print('''           Você achou uma Cura-2''')
-               print(itens.pocao2)
-               funcoes1.escolha_onde_guardar(cura2)
+               itens.achando_cura_2()
           elif respost == 's':
                funcoes1.movimentacao()
                print("Você saiu do quarto")

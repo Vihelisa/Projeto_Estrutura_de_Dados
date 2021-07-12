@@ -1,3 +1,6 @@
+from Level1 import funcoes1
+from Itens import itens
+
 def acao_1w():
      print('''
             Com um movimento um tanto quanto bruco, você faz um rolamento
@@ -34,3 +37,45 @@ def cons_1_2():
     ''')
     lista_paragr = [parag1, parag2]
     return lista_paragr
+
+
+def escrivaninha():
+     input('Tecle "enter" para avançar')
+     print('''
+                Você então chega a uma escrivaninha velha e quebrada em várias partes.
+                Contudo em meio a buracos e poeira, há uma gaveta que aparentemente resistiu
+                ao efeito cruel do tempo.
+     ''')
+     print("Vida:", funcoes1.mostrando_vida())
+     input('Tecle "enter" para avançar')
+     print('''
+             O QUE VOCÊ FAZ?
+
+             a- Abrir a gaveta
+             s- Sair
+     ''')
+     return 
+
+def decisao_ecrivaninha():
+        resp = input('Responda e aperte "enter" para continuar\n')
+        if resp == 'a':
+                print('''
+                        Ao Abrir a gaveta, você leva um susto, pois há coisas que aparentemente não 
+                        "deveriam" estar ali.
+                ''')
+                print("Vida:", funcoes1.mostrando_vida())
+                input('Tecle "enter" para avançar')
+                itens.achando_faca()
+                input('Tecle "enter" para avançar')
+                itens.achando_cura_1()
+                input('Tecle "enter" para avançar')
+                itens.achando_arma_1()
+                print('''
+                        Após achar e guardar os itens, você finalmente decide sair deste quarto.
+                ''')
+                funcoes1.movimentacao()
+                print("Vida:", funcoes1.mostrando_vida())
+                input('Tecle "enter" para avançar')
+        elif resp == 's':
+                funcoes1.movimentacao()
+                print("Você saiu da sala")

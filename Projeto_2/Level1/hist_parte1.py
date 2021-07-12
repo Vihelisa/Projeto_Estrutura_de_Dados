@@ -131,8 +131,8 @@ perceber_cinto = str(f'''
 ''')
 
 quartinho2 = str('''
-            Na parte superior há uma porta estreita bem ao meio do quarto e 
-            nas extremidades algoque já foi uma escrivaninha, na direira e 
+            Na parte superior há uma porta estreita bem ao meio do quarto.
+            Nas extremidades algo que já foi uma escrivaninha, na direira e 
             um monte de intulho na esquerda.
 ''')
 
@@ -142,6 +142,8 @@ quartinho3 = str('''
 ''')
 
 quartinho4 = str('''
+             REPRESENTAÇÃO DO QUARTO
+             
             ===========    ==========
             =####                 &&=
             =                       =

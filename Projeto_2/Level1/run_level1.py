@@ -83,7 +83,14 @@ def movimento_2():
         dec_a.decisao_armario()
     elif resp == "w":
         funcoes1.movimentacao()
+        dec_w.escrivaninha()
+        dec_w.decisao_ecrivaninha()
     elif resp == "s":
         funcoes1.movimentacao()
+        dec_s.entulho()
+        dec_s.decisao_entulho()
     elif resp == "d":
+        dec_d.saindo
+        print("Vida:", funcoes1.mostrando_vida())
+        input('Tecle "enter" para avançar')
         funcoes1.movimentacao()
