@@ -94,3 +94,38 @@ def movimento_2():
         print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
         funcoes1.movimentacao()
+
+#Saiu do quarto:
+def  descricao_corredor():
+    i = 0
+    while True:
+        print(hist_parte1.lista_corredor[i])
+        funcoes1.mostrando_atributos()
+        input('Tecle "enter" para avançar')
+        sleep(1)
+        i=i+1
+        if hist_parte1.lista_corredor[i] == hist_parte1.lista_corredor[-1]:
+            print(hist_parte1.lista_corredor[-1])
+            break
+
+def explorando_quartos():
+    pos = 1
+    while True:
+        print(f'''
+                {hist_parte1.lista_quartos[pos-1]} {hist_parte1.lista_quartos[pos]} {hist_parte1.lista_quartos[pos+1]}
+        ''')
+        sleep(1.25)
+        print(hist_parte1.decisao_acao3)
+        funcoes1.mostrando_atributos()
+        resp = input('Responda e tecle "enter" para avançar\n')
+        if resp in hist_parte1.dict_carac_quartos:
+            print(hist_parte1.dict_carac_quartos[resp])
+        if resp in 'lL':
+            pos = pos+1
+        if resp in 'jJ':
+            pos = pos-1
+        if resp in 'sS':
+            print("Saiu")
+            break
+
+

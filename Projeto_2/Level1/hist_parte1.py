@@ -89,7 +89,7 @@ def quem_e_voce():
                 =============================================
     
     ''')
-    nome = input("Escreva seu nome:\n")
+    nome = input("Escreva seu nome:\n").capitalize()
     print('''
                 \n
                 SERÁ QUE É??!!
@@ -164,3 +164,74 @@ decisao_acao2 = str('''
             s- Entulho
             d- Porta
 ''')
+
+esperimento1 = str('''
+            Saindo do quarto você percebe que está em um corredor largo,
+            com várias portas, algumas arrombadas, outras com partes quebradas
+            e outras intáctas. Por algum motivo estranho este lugar te dá
+            calafrios.
+''')
+
+esperimento2 = str('''
+            Então cai a fixa de que o lugar onde acordou é apenas um de, o que parce
+            ser, um total de 8 quartos como o teu. 
+''')
+
+esperimento3 = str('''
+                      REPRESENTAÇÃO DO LUGAR
+            ___
+            |!|=======___====   ====   ====___========
+            |=|\             ###                 ####=
+            |=|               ;#$|                   =
+            |=\                                    //=
+            ======  &|=====   ====_ _====  |===========
+''')
+
+esperimento4 = str('''
+            Você então consegue ver que há um pouco mais de iluminação
+            neste ambiente devido a buracos nas pareces que deixam a luz
+            entrar um pouco mais.
+''')
+
+esperimento5 = str('''
+            Esta tudo quebrado, cheio de entulho.
+            Em alguns lugares o espaço é até bloqueado por madeira, móveis
+            quebrados e lixo. 
+''')
+
+esperimento6 = str('''
+            QUE LUGAR É ESSE?
+''')
+
+lista_corredor = [esperimento1, esperimento2, esperimento3, esperimento4, esperimento5, esperimento6]
+
+decisao_acao3 = str('''
+            Escolha o quarto que deseja ir?
+
+            l- para ir para frente
+            j- para ir para trás
+            s- para ir para a escada
+
+            Para escolher um quarto escreva o nome que aparece na tela
+''')
+
+lista_quartos = ["Quarto 1", "Quarto 2", "Quarto 3", "Quarto 4", "Quarto 5", "Quarto 6", "Quarto 7", "Quarto 8"]
+
+quarto_5 = str('''
+            A porta está trancada, mas há um grtande buraco no meio da porta.
+            Não é possível passar, mas dá pra pereber que é um quarto todo quebrado, 
+            apenas dá pra ver lixo, madeira e nada mais.
+            Não parece ter nada de importante.
+''')
+
+
+dict_carac_quartos = {
+    "Quarto 1": "       O quarto em que você acordou não parece ter nada de errado ou algo a mais para ver.",
+    "Quarto 2": "Este é o quarto 2",
+    "Quarto 3": "Este é o quarto 3",
+    "Quarto 4": "       Há uma pilha de móveis barrando a passagem e a porta está fechada também, não dá pra passar",
+    "Quarto 5": quarto_5,
+    "Quarto 6": "Este é o quarto 6",
+    "Quarto 7": "Este é o quarto 7",
+    "Quarto 8": "Este é o quarto 8",
+}

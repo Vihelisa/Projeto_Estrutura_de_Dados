@@ -25,4 +25,6 @@ run_level1.nome1()
 run_level1.movimento_1()
 run_level1.quartinho()
 run_level1.movimento_2()
+run_level1.descricao_corredor()
+run_level1.explorando_quartos()
 

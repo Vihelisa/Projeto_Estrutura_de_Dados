@@ -26,15 +26,17 @@ def lendo_nome_arq():
             lista_nomes.append(linha)
     return lista_nomes
 
-def lendo_cinto_arq(caminho):
+def lendo_cinto_arq():
     lista_itens_cinto = [] 
+    caminho = os.path.join(PATH, CINTO_ARQ)
     with open(caminho, 'r') as arq:
         for linha in arq:
-            linha.replace("\n", "")
+            linha = linha.replace("\n", "")
             lista_itens_cinto.append(linha)
     return lista_itens_cinto
 
-def lendo_mochila_arq(caminho):
+def lendo_mochila_arq():
+    caminho = os.path.join(PATH, MOCHILA_ARQ)
     lista_itens_mochila = [] 
     with open(caminho, 'r') as arq:
         for linha in arq:
@@ -108,7 +110,7 @@ def guardar_mochila_ou_remover(item):
                 Onde deseja fazer?
     
                 a- Guardar {item} na mochila
-                s- Remover um item do cinto para guardas {item}
+                s- Remover um item da mochila para guardar {item}
     ''')
     resp = input('Responda e aperte "enter" para continuar\n')
     if resp == 'a':
@@ -128,56 +130,40 @@ def guardar_cinto_ou_remover(item):
     ''')
     resp = input('Responda e aperte "enter" para continuar\n')
     if resp == 'a':
-        funcoes1.guardar_1_item_mochila(item)
+        funcoes1.guardar_1_item_cinto(item)
         print("Item adicionado a mochila")
     if resp == 's':
-        remover_item_cinto()
+        remover_item_mochila()
+        guardar_1_item_mochila(item)
         
 
 def guardar_1_item_cinto(item):
     num_max_item = 4
     caminho = os.path.join(PATH, CINTO_ARQ) 
-    lista_itens_cinto = lendo_cinto_arq(caminho)
+    lista_itens_cinto = lendo_cinto_arq()
     if len(lista_itens_cinto)>= num_max_item:
         print(f"Cinto cheio, coloque {item} na mochila ou remova um outro ítem")
         guardar_mochila_ou_remover(item)
     else:
         with open(caminho, 'a') as arq:
             arq.write(str(item) + "\n")
+        print("Item adicionado ao cinto")
 
 
 def guardar_1_item_mochila(item):
-    num_max_item = 10
     caminho = os.path.join(PATH, MOCHILA_ARQ) 
-    lista_itens_cinto = lendo_mochila_arq(caminho)
-    if len(lista_itens_cinto)>= num_max_item:
-        print(f"Cinto cheio, coloque {item} na mochila ou remova um outro ítem")
-    else:
-        with open(caminho, 'a') as arq:
-            arq.write(str(item) + "\n")
+    with open(caminho, 'a') as arq:
+        arq.write(str(item) + "\n")
+    print("Item adicionado a mochila")
+
 
 def remover_item_cinto():
     while True:
         lista_itens_cinto = lendo_cinto_arq()
-        print(f'''
-                    Itens da lista:
-
-                    a- {lista_itens_cinto[0]}
-                    s- {lista_itens_cinto[1]}
-                    w- {lista_itens_cinto[2]}
-                    d- {lista_itens_cinto[3]}
-
-                    Qual item deseja remover?
-        ''')
-        item_remover = input('Responda e aperte "enter" para remover o item')
-        if item_remover == 'a':
-            lista_itens_cinto.remove(lista_itens_cinto[0])
-        if item_remover == 's':
-            lista_itens_cinto.remove(lista_itens_cinto[1])
-        if item_remover == 'w':
-            lista_itens_cinto.remove(lista_itens_cinto[2])
-        if item_remover == 'd':
-            lista_itens_cinto.remove(lista_itens_cinto[3])
+        for item in lista_itens_cinto:
+            print(item)
+        remover = input("Escreva, da forma mostrada na tela, o item que deseja remover:\n")
+        lista_itens_cinto.remove(remover)
         print('''
                     Deseja remover mais algum item?
 
@@ -189,3 +175,34 @@ def remover_item_cinto():
         if resp == 's':
             break
 
+
+def remover_item_mochila():
+    while True:
+        pos = 0
+        lista_itens_mochila = lendo_mochila_arq()
+        for item in lista_itens_mochila:
+            print(item)
+        remover = input("Escreva, da forma mostrada na tela, o item que deseja remover:\n")
+        lista_itens_mochila.remove(remover)
+        print('''
+                    Deseja remover mais algum item?
+
+                    a- Sim
+                    s- Não
+        ''')
+        reescrevendo_itens_cinto(lista_itens_mochila)
+        resp = input('Responda e aperte "enter" para continuar\n')
+        if resp == 's':
+            break
+
+def mostrando_atributos():
+    lista_itens_cinto = lendo_cinto_arq()
+    quant_cinto = len(lista_itens_cinto)
+    lista_itens_mochi = lendo_mochila_arq()
+    last_item = lista_itens_mochi[-1]
+    print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\n{mostrando_vida()}')
+
+    
+    
+    
+    
