@@ -1,5 +1,6 @@
 from Level1 import funcoes1
-
+from Itens import itens
+from time import sleep
 
 parag1 = str('''
             Você abre os olhos...
@@ -224,14 +225,58 @@ quarto_5 = str('''
             Não parece ter nada de importante.
 ''')
 
+Q2_p1 = str('''
+            Você mexe na maçaneta da porta e nada acontece. ESTÁ TRANCADA!
+''')
 
-dict_carac_quartos = {
-    "Quarto 1": "       O quarto em que você acordou não parece ter nada de errado ou algo a mais para ver.",
-    "Quarto 2": "Este é o quarto 2",
-    "Quarto 3": "Este é o quarto 3",
-    "Quarto 4": "       Há uma pilha de móveis barrando a passagem e a porta está fechada também, não dá pra passar",
-    "Quarto 5": quarto_5,
-    "Quarto 6": "Este é o quarto 6",
-    "Quarto 7": "Este é o quarto 7",
-    "Quarto 8": "Este é o quarto 8",
-}
+Q2_p2 = str('''
+            Você olha para um papel que está encaixado num campo preso a porta.
+''')
+
+Q2_p3 = str('''
+            Você pega esse papel?
+
+            a- Sim
+            s- Não
+''')
+
+lista_Q2_parte1 = [Q2_p1, Q2_p2, Q2_p3]
+
+def quarto_2():
+    lista_itens_mochila = funcoes1.lendo_mochila_arq()
+    lista_itens_cinto = funcoes1.lendo_cinto_arq()
+    if 'Documento cobaia 5152' in lista_itens_cinto or 'Documento cobaia 5152' in lista_itens_mochila:
+        print(Q2_p1)
+    i = 0
+    while True:
+        print(lista_Q2_parte1[i])
+        print(funcoes1.mostrando_atributos())
+        input('Tecle "enter" para avançar')
+        sleep(1)
+        i=i+1
+        if lista_Q2_parte1[i] == lista_Q2_parte1[-1]:
+            print(lista_Q2_parte1[-1])
+            break
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == 'a':
+        itens.achando_doc_5152()
+    
+
+def quartos(quarto):
+    if quarto == 'Quarto 1':
+        print("       O quarto em que você acordou não parece ter nada de errado ou algo a mais para ver.")
+    if quarto == 'Quarto 2':
+        quarto_2()
+    if quarto == 'Quarto 3':
+        print("       Este é o quarto 3")
+    if quarto == 'Quarto 4':
+        print("       Há uma pilha de móveis barrando a passagem e a porta está fechada também, não dá pra passar")
+    if quarto == 'Quarto 5':
+        print(quarto_5)
+    if quarto == 'Quarto 6':
+        print("       Este é o quarto 3")
+    if quarto == 'Quarto 7':
+        print("       Este é o quarto 3")
+    if quarto == 'Quarto 8':
+        print("       Este é o quarto 3")
+    

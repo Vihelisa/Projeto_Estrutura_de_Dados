@@ -118,8 +118,8 @@ def explorando_quartos():
         print(hist_parte1.decisao_acao3)
         funcoes1.mostrando_atributos()
         resp = input('Responda e tecle "enter" para avançar\n')
-        if resp in hist_parte1.dict_carac_quartos:
-            print(hist_parte1.dict_carac_quartos[resp])
+        if resp in hist_parte1.lista_quartos:
+            hist_parte1.quartos(resp)
         if resp in 'lL':
             pos = pos+1
         if resp in 'jJ':

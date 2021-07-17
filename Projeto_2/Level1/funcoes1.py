@@ -203,6 +203,17 @@ def mostrando_atributos():
     print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\n{mostrando_vida()}')
 
     
+def deseja_guardar(item):
+    print('''           
+                Deseja guardar este ítem?
     
+                a- Sim
+                s- Não
+    ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    if resp == 'a':
+        funcoes1.escolha_onde_guardar(item)
+    if resp == 's':
+        print(F'{item} foi descartado')    
     
     

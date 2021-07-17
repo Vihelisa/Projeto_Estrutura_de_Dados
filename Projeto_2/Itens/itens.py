@@ -68,6 +68,33 @@ ARMA1 = str('''
                 =====================================
 ''')
 
+DOCUMENTO_COB_5152 = str('''
+            _____________________________________________________________________
+            |                                                                   |
+            | Doutor: Joseph Smith                      Data: 12/07/1961        |
+            | Paciente: Cobaia 5152                     Quarto: 02              |
+            | Local: Hospital de Reabilitação Psiquiatra Colônia                |
+            | Endereço: Barbacoa,  Montes Uivantes - Brasil                     |
+            |                                                                   |
+            |                                                                   |
+            | Relatório do paciente:                                            |
+            |   Já fazem 2 meses desde o início, aparentemente a cobaia 5152    |
+            |está piorando conforme os testes para reverter sua situação mental.|
+            |Foram feitos diversos tratamentos que a princípio não refletiram   |
+            |nenhum efeito no paciente. Contudo posso afirmar que a terapia de  |
+            |choque insul[inico a acalmou e fez parar de falar do suposto filho |
+            |morto pelo marido. Nas próximas semanas irão ocorrer mais sessões, |
+            |esperamos que ela volte a sua sanidade e finalmente lembre da ver- |
+            |dade.                                                              |
+            |                                                                   |
+            |OBS: Em relação as histórias que a paciente conta, que fique bem   |
+            |claro que o marido afirmou que o bebê nasceu morto. Ele é um homem |
+            |de boa palavra e boa índole para a sociedade, então devemos acredi-|
+            |tar nele.                                                          |
+            |___________________________________________________________________|
+''')
+
+
 def achando_faca():
     faca = 'Faca'
     print('''           Você achou uma Faca''')
@@ -91,3 +118,8 @@ def achando_arma_1():
     print('''           Você achou uma Glock G42''')
     print(ARMA1)
     funcoes1.escolha_onde_guardar(arma_1)
+
+def achando_doc_5152():
+    doc = 'Documento cobaia 5152'
+    print(DOCUMENTO_COB_5152)
+    funcoes1.deseja_guardar(doc)
