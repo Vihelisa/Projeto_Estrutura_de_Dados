@@ -281,6 +281,13 @@ def quarto_2():
             quarto_2_parte_2()
         else:
             pass
+    if resp == 's':
+        escolha = funcoes1.escolher_item()
+        if escolha == 'Chave 2':
+            quarto_2_parte_2()
+        else:
+            pass
+
         
 
 Q3_p1 = str('''

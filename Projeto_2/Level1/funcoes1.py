@@ -273,9 +273,7 @@ def pegar_item_mochila():
         print(item)
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
     for coisa in lista_itens_mochila[::-1]:
-        if escolher not in coisa:
-            lista_itens_mochila.remove(coisa)
-        else:
+        if coisa in escolher:
             if 'Cura' in escolher:
                 utilizando.usando_cura(escolher)
                 reescrevendo_itens_cinto(lista_itens_mochila)
@@ -285,6 +283,9 @@ def pegar_item_mochila():
             if 'Chave 8' in escolher:
                 lista_itens_mochila.remove('Chave 8')
                 reescrevendo_itens_cinto(lista_itens_mochila)
+        else:
+            lista_itens_mochila.remove(coisa)
+            
 
     return escolher
 
