@@ -8,10 +8,13 @@ from Itens import utilizando
 PATH = "Arquivos"
 NOME_ARQ = "nome.txt"
 VIDA_ARQ = "vida.txt"
+VIDA_BOSS_ARQ = 'vida_boss.txt'
 NOMES_ALEATORIOS1 = ["Vitoria", "Rafael", "Jessica"]
 MOCHILA_ARQ = "mochila.txt"
 CINTO_ARQ = "cinto.txt"
 CURA_MAX_LEVEL = 10
+ISA = ['i', 's', 'a', 'b', 'e', 'l', 'a']
+
 
 def guardando_nome(nome):
     caminho = os.path.join(PATH, NOME_ARQ) 
@@ -46,6 +49,16 @@ def lendo_mochila_arq():
             lista_itens_mochila.append(linha)
     return lista_itens_mochila
 
+
+def lendo_vida_boss():
+    lista_vida_boss = []
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    with open(caminho, "r") as arq:
+        for linha in arq:
+            lista_vida_boss.append(linha)
+    return lista_vida_boss
+
+
 def mostrando_vida():
     lista_pontos_vida = []
     caminho = os.path.join(PATH, VIDA_ARQ)
@@ -54,6 +67,16 @@ def mostrando_vida():
             ponto = ponto.replace("\n", "")
             lista_pontos_vida.append(ponto)
     return lista_pontos_vida
+
+
+def vida_boss():
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    num = 20
+    with open(caminho, 'w') as arq:
+        while num > 0:
+            arq.write(str('@\n'))
+            #print(num)
+            num = num -1
 
 def danos_vida(valor_dano):
     lista_pontos_vida = []
@@ -70,11 +93,41 @@ def danos_vida(valor_dano):
             break
     return lista_pontos_vida
 
+
 def reescrevendo_vida(lista_vida):
     caminho = os.path.join(PATH, VIDA_ARQ)
     with open(caminho, "w") as arq:
         for ponto in lista_vida:
             arq.write(str(ponto) + "\n")
+
+
+def reescrevendo_vida_luta(lista, dano):
+    caminho = os.path.join(PATH, VIDA_ARQ)
+    tam = len(lista) - dano
+    while tam != len(lista):
+        lista.remove('%\n')
+        tam_atual = len(lista)
+        if tam_atual == 0:
+            break
+    with open(caminho, 'w') as arq:
+        for item in lista:
+            arq.write(str(item)+ '\n')
+    return tam_atual
+
+
+def reescrevendo_vida_boss(lista, dano):
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    tam = len(lista) - dano
+    while tam != len(lista):
+        lista.remove('@\n')
+        tam_atual = len(lista)
+        if tam_atual == 0:
+            break
+    with open(caminho, 'w') as arq:
+        for item in lista:
+            arq.write(str(item))
+    return tam_atual
+
 
 def reescrevendo_itens_cinto(lista_itens_novos):
     caminho = os.path.join(PATH, CINTO_ARQ) 
@@ -281,7 +334,7 @@ def pegar_item_mochila():
                 lista_itens_mochila.remove('Chave 2')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 8' in escolher:
-                lista_itens_mochila.remove('Chave 8')
+                lista_itens_mochila.remove(coisa)
                 reescrevendo_itens_cinto(lista_itens_mochila)
         else:
             lista_itens_mochila.remove(coisa)
@@ -300,3 +353,69 @@ def escolher_item():
     if resp == 's':
         escolha = None
     return escolha
+
+
+def luta(dano):
+    luta = False
+    vida_boss()
+    i = 0
+    print(f'''
+                        =================================
+                        =                               =
+                        =          PENSA RÁPIDO         =
+                        =                               =
+                        =================================
+        ''')
+    while True:
+        print(ISA[i])
+        resp = input("Digite as letras sem espaço \n")
+        if resp == ISA[i]:
+            lista_vida_boss = lendo_vida_boss()
+            lista_vida = mostrando_vida()
+            tam_atual = reescrevendo_vida_boss(lista_vida_boss, dano)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Monstro:{len_boss}      =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            i = i+1
+            if tam_atual == 0:
+                print('MORTO')
+                luta = False
+                break
+            if i == len(ISA)-1:
+                i=0
+                #print('Voltando')
+        else:
+            i = i+1
+            print('ERROU')
+            dano_boss = 2
+            lista_vida = mostrando_vida()
+            lista_vida_boss = lendo_vida_boss()
+            tam_atual = reescrevendo_vida_luta(lista_vida, dano_boss)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Monstro:{len_boss}      =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            if len(lista_vida) == 0:
+                print('MORTO')
+                luta = True
+                break
+            if i == len(ISA)-1:
+                i=0
+                print('Voltando')
+    return luta
+
+
+

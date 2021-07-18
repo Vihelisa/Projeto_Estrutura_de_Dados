@@ -6,6 +6,7 @@ NOME_ARQ = "nome.txt"
 VIDA_ARQ = "vida.txt"
 MOCHILA_ARQ = "mochila.txt"
 CINTO_ARQ = "cinto.txt"
+VIDA_BOSS_ARQ = 'vida_boss.txt'
 
 def criando_pasta_arquivos():
     if os.path.exists(PATH):
@@ -41,6 +42,13 @@ def cria_verifica_arq_mochila():
 
 def cria_verifica_arq_cinto():
     caminho = os.path.join(PATH, CINTO_ARQ)
+    if os.path.isfile(caminho):
+        pass
+    else:
+        open(caminho, "w")
+
+def cria_verifica_vida_boss():
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
     if os.path.isfile(caminho):
         pass
     else:

@@ -420,9 +420,10 @@ def quarto_8():
     arma = funcoes1.escolher_item()
     if arma == 'Glock G42':
         dano = 3
+        funcoes1.luta(dano)
     if arma == 'Faca':
         dano = 1
-
+        funcoes1.luta(dano)
 
 
 def quartos(quarto):

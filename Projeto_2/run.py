@@ -11,6 +11,7 @@ verificando_arq.cria_verifica_arq_nome()
 verificando_arq.cria_verifica_arq_vida()
 verificando_arq.cria_verifica_arq_cinto()
 verificando_arq.cria_verifica_arq_mochila()
+verificando_arq.cria_verifica_vida_boss()
 
 #Menu para começar o jogo:
 menu.entrando_no_jogo()
