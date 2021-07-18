@@ -181,7 +181,7 @@ esperimento2 = str('''
 esperimento3 = str('''
                       REPRESENTAÇÃO DO LUGAR
             ___
-            |!|=======___====   ====   ====___========
+            |!|=======___====   ====___====___========
             |=|\             ###                 ####=
             |=|               ;#$|                   =
             |=\                                    //=
@@ -219,7 +219,7 @@ decisao_acao3 = str('''
 lista_quartos = ["Quarto 1", "Quarto 2", "Quarto 3", "Quarto 4", "Quarto 5", "Quarto 6", "Quarto 7", "Quarto 8"]
 
 quarto_5 = str('''
-            A porta está trancada, mas há um grtande buraco no meio da porta.
+            A porta está trancada, mas há um gartande buraco no meio da porta.
             Não é possível passar, mas dá pra pereber que é um quarto todo quebrado, 
             apenas dá pra ver lixo, madeira e nada mais.
             Não parece ter nada de importante.
@@ -242,11 +242,27 @@ Q2_p3 = str('''
 
 lista_Q2_parte1 = [Q2_p1, Q2_p2, Q2_p3]
 
+Q2_p4 = str('''
+            Você olha para um papel que está encaixado num campo preso a porta.
+''')
+
+def quarto_2_parte_2():
+    print('''
+            A porta se abre e você consegue ver um quarto muito estranho.
+            Há apenas uma cama no canto, uma cadeira no canto oposto, arranhões e manchas 
+            nas paredes, símbolos estranhos e uma corda pendurada em cima de onde estava a cadeira.
+            ALGO ESTÁ MUITO ERRADO AQUI!!
+    ''')
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print('''
+            Você então percebe que há uma outra chave na cadeira que estava no canto.
+    ''')
+    itens.achando_chave8()
+
 def quarto_2():
-    lista_itens_mochila = funcoes1.lendo_mochila_arq()
-    lista_itens_cinto = funcoes1.lendo_cinto_arq()
-    if 'Documento cobaia 5152' in lista_itens_cinto or 'Documento cobaia 5152' in lista_itens_mochila:
-        print(Q2_p1)
+    #lista_itens_mochila = funcoes1.lendo_mochila_arq()
+    #lista_itens_cinto = funcoes1.lendo_cinto_arq()
     i = 0
     while True:
         print(lista_Q2_parte1[i])
@@ -260,23 +276,173 @@ def quarto_2():
     resp = input('Responda e tecle "enter" para avançar\n').lower()
     if resp == 'a':
         itens.achando_doc_5152()
-    
+        escolha = funcoes1.escolher_item()
+        if escolha == 'Chave 2':
+            quarto_2_parte_2()
+        else:
+            pass
+        
+
+Q3_p1 = str('''
+            Neste quarto não há porta, então logo de cara dá pra perceber que é um lugar bem vazio.
+''')
+
+Q3_p2 = str('''
+            Há apenas o que parece ser uma caixa grande num canto, quadros velhos, uma mesa quebrada
+            e uma poltrona velha e empoeirada também.
+''')
+
+Q3_p3 = str('''
+            O que você faz?
+
+            a- Entra e explora o lugar
+            s- Procura ver outro quarto
+''')
+
+Q3_p4 = str('''
+            Ao entrar você percebe que o quato não é muito intereçante, a não ser pela caixa.
+            Bom, parecia uma caixa, mas na verdade era um cofre.
+''')
+
+Q3_p5 = str('''
+            O que você faz?
+
+            a- Tenta abrir o cofre 
+            s- Procura ver outro quarto
+''')
+
+def quarto_3():
+    print(Q3_p1)
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(Q3_p2)
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(Q3_p3)
+    print(funcoes1.mostrando_atributos())
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == 'a':
+        print(Q3_p4)
+        print(funcoes1.mostrando_atributos())
+        input('Tecle "enter" para avançar')
+        print(Q3_p5)
+        print(funcoes1.mostrando_atributos())
+        cofre = input('Responda e tecle "enter" para avançar\n').lower()
+        if cofre == 'a':
+            itens.achando_cofre()
+
+Q8_p1 = str('''
+            Ao chegar em frente a porta, você mexe na maçaeta e percebe que ela também está 
+            trancada.
+''')
+
+Q8_p2 = str('''
+            Você coloca a chave...
+            Gira...
+            Ouve destrancar...
+            ENTÃO
+''')
+
+Q8_p3 = str('''
+            =================================
+            =                               =
+            =       BOOOOOMMMMM!!!!!        =
+            =                               =
+            =================================
+''')
+
+Q8_p4 = str('''
+            A porta é empurrada com força e você vai junto com ela.
+''')
+
+Q8_p5 = str('''
+            Então você sai de trás da porta e vê uma criatura terrível,
+            algo que você nunca imaginou na vida.
+''')
+
+boss1 = str('''
+            Ela é bem alta e alongada, suas mãos possuem dedos longos e finos como agulhas, 
+            mas ponteagudos como grandes e afiadas garras. Seu corpo é uma forma humanoide extremamente
+            deformada e esquelética.
+            Seu pescoço é muito longo e sustenta uma cabeça igualmente longa e fina, como o rosto de uma caveira,
+            mas parte do ceu crânio é afundado criando um buraco.
+            Seu peito aloja um simbolo estranho gravado em sua pele como uma ferida, criando a ilusao de ser
+            um buraco em forma de sorrisos em várias direções sangrando a cada movimento.
+''')
+
+boss1_2 = str('''
+            Seu rosto é a pior parte. 
+            Ele possue olhos compridos e fundo, na verdade parecem dois buracos ovais, fundos e negros
+            penetrando sua alma enquanto caminha até você. E seu sorriso macabro, uma boca com dentes ponteagudos
+            preenchem o sorriso que nunca se desfaz pois parece ter sido feito para irem até as orelhas, 
+            nunca se fechando, nunca se desfazendo, forçando a criatura estar SEMPRE FELIZ.
+''')
+
+gameplay = str('''
+            1- Escolha seu ítem para lutar com essa criatura;
+            2- Acerte todas as letras que apareceram na tela, cada erro causará danos a você;
+            3- Mate-o antes que ele te mate.
+''')
+
+boasorte = str('''
+            =================================
+            =                               =
+            =         BOA SORTE!!!!!        =
+            =                               =
+            =================================
+''')
+
+lista_boss = [Q8_p2, Q8_p3, Q8_p4, Q8_p5, boss1, boss1_2, gameplay, boasorte]
+
+def quarto_8():
+    print(Q8_p1)
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    escolha = funcoes1.escolher_item()
+    if escolha == 'Chave 8':
+        i = 0
+        while True:
+            print(lista_boss[i])
+            print(funcoes1.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            sleep(1)
+            i=i+1
+            if lista_boss[i] == lista_boss[-1]:
+                print(lista_boss[-1])
+                break
+    arma = funcoes1.escolher_item()
+    if arma == 'Glock G42':
+        dano = 3
+    if arma == 'Faca':
+        dano = 1
+
+
 
 def quartos(quarto):
     if quarto == 'Quarto 1':
-        print("       O quarto em que você acordou não parece ter nada de errado ou algo a mais para ver.")
+        print("        O quarto em que você acordou não parece ter nada de errado ou algo a mais para ver.")
     if quarto == 'Quarto 2':
         quarto_2()
     if quarto == 'Quarto 3':
-        print("       Este é o quarto 3")
+        quarto_3()
     if quarto == 'Quarto 4':
         print("       Há uma pilha de móveis barrando a passagem e a porta está fechada também, não dá pra passar")
     if quarto == 'Quarto 5':
         print(quarto_5)
     if quarto == 'Quarto 6':
-        print("       Este é o quarto 3")
+        print("""
+                A porta não parece danificada, mas é impoSsível de abrir. Ela parece estar trancada
+                e sua maçaneta está quebrada também, definitivamente nãO tem ComO entrar.
+                Mas quando se olha pelo buRaco deixado pela maçaneta que deveRia estar ali, 
+                é pOssível ver coisas escritas, com algo que parece sangue, na parede, mas está tão
+                deformado que não dá pra ler direito. 
+        """)
     if quarto == 'Quarto 7':
-        print("       Este é o quarto 3")
+        print("""
+                A porta está aberta e dá pra ver que o quarto possue apenas uma cama.
+                Estranhamente as paredes estão sujas de algo e também bem arranhadas...
+                Uma sensação muito estranha te toma qando olha pra esse lugar.
+        """)
     if quarto == 'Quarto 8':
-        print("       Este é o quarto 3")
+        quarto_8()
     

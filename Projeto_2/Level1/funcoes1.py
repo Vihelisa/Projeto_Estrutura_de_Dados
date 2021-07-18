@@ -1,6 +1,8 @@
 import os
 from typing import ChainMap
 from Level1 import funcoes1
+from Itens import utilizando
+
 
 #Variáveis:
 PATH = "Arquivos"
@@ -199,7 +201,11 @@ def mostrando_atributos():
     lista_itens_cinto = lendo_cinto_arq()
     quant_cinto = len(lista_itens_cinto)
     lista_itens_mochi = lendo_mochila_arq()
-    last_item = lista_itens_mochi[-1]
+    if len(lista_itens_mochi) == 0:
+        last_item = None
+    else:
+        last_item = lista_itens_mochi[-1]
+    
     print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\n{mostrando_vida()}')
 
     
@@ -215,5 +221,81 @@ def deseja_guardar(item):
         funcoes1.escolha_onde_guardar(item)
     if resp == 's':
         print(F'{item} foi descartado')    
+
+
+def usar_item():
+    print('''
+                    Deseja utilizar algum item?
+
+                    a- Sim
+                    s- Não
+        ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    return resp
+
+
+def cinto_ou_mochila():
+    print('''           
+                Onde deseja acessar?
+    
+                a- Cinto
+                s- Mochila
+    ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    if resp == 'a':
+        cinto = 'cinto'
+        return cinto
+    if resp == 's':
+        mochila = 'mochila'
+        return mochila
     
     
+def pegar_item_cinto():
+    lista_itens_cinto = lendo_cinto_arq()
+    for item in lista_itens_cinto:
+        print(item)
+    escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
+    if 'Cura' in escolher:
+        utilizando.usando_cura(escolher)
+        lista_itens_cinto.remove(escolher)
+        reescrevendo_itens_cinto(lista_itens_cinto)
+    if 'Chave 2' in escolher:
+        lista_itens_cinto.remove('Chave 2')
+        reescrevendo_itens_cinto(lista_itens_cinto)
+    if 'Chave 8' in escolher:
+        lista_itens_cinto.remove('Chave 8')
+        reescrevendo_itens_cinto(lista_itens_cinto)
+    return escolher
+
+def pegar_item_mochila():
+    lista_itens_mochila = lendo_mochila_arq()
+    for item in lista_itens_mochila[::-1]:
+        print(item)
+    escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
+    for coisa in lista_itens_mochila[::-1]:
+        if escolher not in coisa:
+            lista_itens_mochila.remove(coisa)
+        else:
+            if 'Cura' in escolher:
+                utilizando.usando_cura(escolher)
+                reescrevendo_itens_cinto(lista_itens_mochila)
+            if 'Chave 2' in escolher:
+                lista_itens_mochila.remove('Chave 2')
+                reescrevendo_itens_cinto(lista_itens_mochila)
+            if 'Chave 8' in escolher:
+                lista_itens_mochila.remove('Chave 8')
+                reescrevendo_itens_cinto(lista_itens_mochila)
+
+    return escolher
+
+def escolher_item():
+    resp = funcoes1.usar_item()
+    if resp == 'a':
+        lugar = funcoes1.cinto_ou_mochila()
+        if lugar == 'cinto':
+            escolha = funcoes1.pegar_item_cinto()
+        if lugar == 'mochila':
+            escolha = funcoes1.pegar_item_mochila()
+    if resp == 's':
+        escolha = None
+    return escolha
