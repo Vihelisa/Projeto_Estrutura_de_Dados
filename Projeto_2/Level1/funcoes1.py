@@ -106,7 +106,7 @@ def reescrevendo_vida_luta(lista, dano):
     caminho = os.path.join(PATH, VIDA_ARQ)
     tam = len(lista) - dano
     while tam != len(lista):
-        lista.remove('%\n')
+        lista.remove('%')
         tam_atual = len(lista)
         if tam_atual == 0:
             break
@@ -310,9 +310,13 @@ def pegar_item_cinto():
     for item in lista_itens_cinto:
         print(item)
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
-    if 'Cura' in escolher:
+    if 'Cura-1' in escolher:
         utilizando.usando_cura(escolher)
-        lista_itens_cinto.remove(escolher)
+        lista_itens_cinto.remove('Cura-1')
+        reescrevendo_itens_cinto(lista_itens_cinto)
+    if 'Cura-2' in escolher:
+        utilizando.usando_cura(escolher)
+        lista_itens_cinto.remove('Cura-2')
         reescrevendo_itens_cinto(lista_itens_cinto)
     if 'Chave 2' in escolher:
         lista_itens_cinto.remove('Chave 2')
@@ -329,15 +333,19 @@ def pegar_item_mochila():
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
     for coisa in lista_itens_mochila[::-1]:
         if coisa in escolher:
-            if 'Cura' in escolher:
+            if 'Cura-1' in escolher:
                 utilizando.usando_cura(escolher)
-                lista_itens_mochila.remove(coisa)
+                lista_itens_mochila.remove('Cura-1')
+                reescrevendo_itens_cinto(lista_itens_mochila)
+            if 'Cura-2' in escolher:
+                utilizando.usando_cura(escolher)
+                lista_itens_mochila.remove('Cura-2')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 2' in escolher:
-                lista_itens_mochila.remove(coisa)
+                lista_itens_mochila.remove('Chave 2')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 8' in escolher:
-                lista_itens_mochila.remove(coisa)
+                lista_itens_mochila.remove('Chave 8')
                 reescrevendo_itens_cinto(lista_itens_mochila)
         else:
             lista_itens_mochila.remove(coisa)

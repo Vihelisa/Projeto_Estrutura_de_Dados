@@ -424,7 +424,7 @@ def quarto_8():
     if arma == 'Faca':
         dano = 1
         funcoes1.luta(dano)
-    
+        
 
 
 def quartos(quarto):
