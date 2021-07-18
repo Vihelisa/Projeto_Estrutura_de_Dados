@@ -110,7 +110,9 @@ def  descricao_corredor():
 
 def explorando_quartos():
     pos = 1
+    gameover = False
     while True:
+        lista_vida = funcoes1.mostrando_vida()
         print(f'''
                 {hist_parte1.lista_quartos[pos-1]} {hist_parte1.lista_quartos[pos]} {hist_parte1.lista_quartos[pos+1]}
         ''')
@@ -120,6 +122,10 @@ def explorando_quartos():
         resp = input('Responda e tecle "enter" para avançar\n')
         if resp in hist_parte1.lista_quartos:
             hist_parte1.quartos(resp)
+        if len(lista_vida) == 0:
+            print(hist_parte1.gameover)
+            gameover = True
+            break
         if resp in 'lL':
             pos = pos+1
         if resp in 'jJ':
@@ -127,5 +133,7 @@ def explorando_quartos():
         if resp in 'sS':
             print("Saiu")
             break
+    return gameover
+    
 
 

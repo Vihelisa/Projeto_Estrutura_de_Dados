@@ -424,6 +424,7 @@ def quarto_8():
     if arma == 'Faca':
         dano = 1
         funcoes1.luta(dano)
+    
 
 
 def quartos(quarto):
@@ -453,4 +454,12 @@ def quartos(quarto):
         """)
     if quarto == 'Quarto 8':
         quarto_8()
-    
+        
+        
+gameover = str("""
+                =========================================
+                =                                       =
+                =               GAME OVER               =
+                =                                       =
+                =========================================
+        """)

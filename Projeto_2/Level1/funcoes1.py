@@ -30,6 +30,7 @@ def lendo_nome_arq():
         for linha in arq:
             lista_nomes.append(linha)
     return lista_nomes
+    
 
 def lendo_cinto_arq():
     lista_itens_cinto = [] 
@@ -134,6 +135,7 @@ def reescrevendo_itens_cinto(lista_itens_novos):
     with open(caminho, 'w') as arq:
         for item in lista_itens_novos:
             arq.write(str(item) + "\n")
+
 
 def movimentacao():
     lista_movimento = ['_','_','_','_','_','_','_','_','_','&']
@@ -329,9 +331,10 @@ def pegar_item_mochila():
         if coisa in escolher:
             if 'Cura' in escolher:
                 utilizando.usando_cura(escolher)
+                lista_itens_mochila.remove(coisa)
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 2' in escolher:
-                lista_itens_mochila.remove('Chave 2')
+                lista_itens_mochila.remove(coisa)
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 8' in escolher:
                 lista_itens_mochila.remove(coisa)
@@ -356,7 +359,6 @@ def escolher_item():
 
 
 def luta(dano):
-    luta = False
     vida_boss()
     i = 0
     print(f'''
@@ -386,7 +388,6 @@ def luta(dano):
             i = i+1
             if tam_atual == 0:
                 print('MORTO')
-                luta = False
                 break
             if i == len(ISA)-1:
                 i=0
@@ -410,12 +411,11 @@ def luta(dano):
             #print(tam_atual)
             if len(lista_vida) == 0:
                 print('MORTO')
-                luta = True
                 break
             if i == len(ISA)-1:
                 i=0
-                print('Voltando')
-    return luta
+                #print('Voltando')
+
 
 
 
