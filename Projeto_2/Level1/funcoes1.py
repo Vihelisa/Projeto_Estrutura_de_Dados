@@ -335,17 +335,17 @@ def pegar_item_mochila():
         if coisa in escolher:
             if 'Cura-1' in escolher:
                 utilizando.usando_cura(escolher)
-                lista_itens_mochila.remove('Cura-1')
+                lista_itens_mochila.remove('Cura-1\n')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Cura-2' in escolher:
                 utilizando.usando_cura(escolher)
-                lista_itens_mochila.remove('Cura-2')
+                lista_itens_mochila.remove('Cura-2\n')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 2' in escolher:
-                lista_itens_mochila.remove('Chave 2')
+                lista_itens_mochila.remove('Chave 2\n')
                 reescrevendo_itens_cinto(lista_itens_mochila)
             if 'Chave 8' in escolher:
-                lista_itens_mochila.remove('Chave 8')
+                lista_itens_mochila.remove('Chave 8\n')
                 reescrevendo_itens_cinto(lista_itens_mochila)
         else:
             lista_itens_mochila.remove(coisa)
@@ -395,7 +395,13 @@ def luta(dano):
             #print(tam_atual)
             i = i+1
             if tam_atual == 0:
-                print('MORTO')
+                print('''
+                        =============================
+                        =                           =
+                        =   A CRIATURA ESTÁ MORTA   =
+                        =                           =
+                        =============================
+                ''')
                 break
             if i == len(ISA)-1:
                 i=0

@@ -4,6 +4,7 @@ from time import sleep
 import verificando_arq
 import menu
 from Level1 import run_level1
+from Level2 import run_level2
 
 #Criando e verificando se arquivo e pasta existem:
 def verificando_arquivos():
@@ -34,4 +35,8 @@ def level_1():
     gameover = run_level1.explorando_quartos()
 
     return gameover
+
+
+def level_2():
+    run_level2.hist2()
     
