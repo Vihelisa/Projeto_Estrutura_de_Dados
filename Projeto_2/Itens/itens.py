@@ -158,6 +158,29 @@ CHAVE_8 = str('''
             =====================================           
 ''')
 
+CHAVE_5 = str('''
+            =====================================
+            =            __________             =
+            =           /::::/\::::\            =
+            =        /::::/ /  \ \::::\         =
+            =       /::::/        \::::\        =
+            =           |   =====  |            =
+            =           |   |___   |            =
+            =            \   ___| /             =
+            =             \______/              =
+            =               |  |                =
+            =               |  |                =
+            =               |  |                =
+            =               |  |                =
+            =               |  |__              =
+            =               |  ___|             =
+            =               |  |___             =
+            =               |_____|             =
+            =====================================
+            = Chave de metal cravado o numero 5 =
+            =====================================           
+''')
+
 RELATORIO = str('''
             _____________________________________________________________________
             |                                                                   |
@@ -172,7 +195,7 @@ RELATORIO = str('''
             |começamos os tratamentos intensivos com métodos vindos da europa e |
             |dos USA, mas há algo de errado. Algumas cobaias não resistiram, por|
             |isso teremos que recrutar mais delas, mas algumas estão mudando (o |
-            |que me faz pensar que estamos tendo progreço). No entanto algumas  |
+            |que me faz pensar que estamos tendo progresso). No entanto algumas |
             |das mudanças estão sendo um pouco assustadoras até pra mim, como   |
             |sorrisos constantes e bem abertos (lembrando que não são das 15 co-|
             |baias que fizemos a cirurgia de Fake Smile) ou olhos esbugalhados e|
@@ -180,6 +203,32 @@ RELATORIO = str('''
             |mês que passaram por uma lobotomia). Por fim sei que estamos pro-  |
             |gredindo e isso é muito bom.                                       |
             |___________________________________________________________________|
+''')
+
+
+CARTA = str('''
+            _____________________________________________________
+            |                                                   |
+            |   30-!4%[031-7068-3-4[8%4-32780-4@01-4-100-!042*  |
+            |   30-^48-93%73^28-4-3223-!0[4%*                   |
+            |   30-3274\4-9%8^74-94%4-73%-+30-^8+3-^82-!1\%82   |
+            |   63-&12154-@04^7154*                             |
+            |   ^853-+3-982-4@01-?9%4-30-^48-73%-4-5}4^53-63    |
+            |   +064%-8-+0^68-3-41^64-630-4-3!4-8-+30-!0[4%-^4  |
+            |   285136463*                                      |
+            |   "30-9%35128-241%-64@01"*                        |
+            |___________________________________________________|
+''')
+
+TRADU_CARTA = str('''
+            _____________________________________________
+            |                                           |
+            |   3 = E   0 = U   4 = A   8 = O   ! = L   |
+            |   2 = S   7 = T   5 = C   @ = Q   + = M   |
+            |   ? = ,   6 = D   * = .   ^ = N   1 = I   |
+            |   - = ESPAÇO      % = R   [ = G   \ = V   |
+            |   9 = P   & = F   } = H                   |
+            |___________________________________________|
 ''')
 
 

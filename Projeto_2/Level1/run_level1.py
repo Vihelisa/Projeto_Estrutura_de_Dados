@@ -118,7 +118,11 @@ def explorando_quartos():
             gameover = True
             break
         print(f'''
-                {hist_parte1.lista_quartos[pos-1]} {hist_parte1.lista_quartos[pos]} {hist_parte1.lista_quartos[pos+1]}
+                 ====================================================
+
+                    {hist_parte1.lista_quartos[pos-1]} {hist_parte1.lista_quartos[pos]} {hist_parte1.lista_quartos[pos+1]}
+
+                 ====================================================
         ''')
         sleep(1.25)
         print(hist_parte1.decisao_acao3)

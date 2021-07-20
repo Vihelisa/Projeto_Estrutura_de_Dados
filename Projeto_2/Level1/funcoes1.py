@@ -380,6 +380,14 @@ def luta(dano):
         print(ISA[i])
         resp = input("Digite as letras sem espaço \n")
         if resp == ISA[i]:
+            print(f'''
+                        ==============================
+                        =                            =
+                        =   Você atacou a criatura   =
+                        =      {dano} de Dano           =
+                        =                            =
+                        ==============================
+                ''')
             lista_vida_boss = lendo_vida_boss()
             lista_vida = mostrando_vida()
             tam_atual = reescrevendo_vida_boss(lista_vida_boss, dano)
@@ -388,7 +396,7 @@ def luta(dano):
             print(f'''
                         =========================================================
                         =                                                       =
-                        =       Você:{len_vida}                      Monstro:{len_boss}      =
+                        =       Você:{len_vida}                      Imoh:{len_boss}      =
                         =                                                       =
                         =========================================================
             ''')
@@ -409,6 +417,15 @@ def luta(dano):
         else:
             i = i+1
             print('ERROU')
+            print('''
+                        =============================
+                        =                           =
+                        =   A criatura te atacou    =
+                        =        2 de Dano          =
+                        =                           =
+                        =============================
+                ''')
+
             dano_boss = 2
             lista_vida = mostrando_vida()
             lista_vida_boss = lendo_vida_boss()
