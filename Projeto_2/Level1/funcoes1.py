@@ -137,6 +137,13 @@ def reescrevendo_itens_cinto(lista_itens_novos):
             arq.write(str(item) + "\n")
 
 
+def reescrevendo_itens_mochila(lista_itens_novos):
+    caminho = os.path.join(PATH, MOCHILA_ARQ) 
+    with open(caminho, 'w') as arq:
+        for item in lista_itens_novos:
+            arq.write(str(item))
+
+
 def movimentacao():
     lista_movimento = ['_','_','_','_','_','_','_','_','_','&']
     print(lista_movimento)
@@ -326,6 +333,7 @@ def pegar_item_cinto():
         reescrevendo_itens_cinto(lista_itens_cinto)
     return escolher
 
+
 def pegar_item_mochila():
     lista_itens_mochila = lendo_mochila_arq()
     for item in lista_itens_mochila[::-1]:
@@ -336,22 +344,21 @@ def pegar_item_mochila():
             if 'Cura-1' in escolher:
                 utilizando.usando_cura(escolher)
                 lista_itens_mochila.remove('Cura-1\n')
-                reescrevendo_itens_cinto(lista_itens_mochila)
+                reescrevendo_itens_mochila(lista_itens_mochila)
             if 'Cura-2' in escolher:
                 utilizando.usando_cura(escolher)
                 lista_itens_mochila.remove('Cura-2\n')
-                reescrevendo_itens_cinto(lista_itens_mochila)
+                reescrevendo_itens_mochila(lista_itens_mochila)
             if 'Chave 2' in escolher:
                 lista_itens_mochila.remove('Chave 2\n')
-                reescrevendo_itens_cinto(lista_itens_mochila)
+                reescrevendo_itens_mochila(lista_itens_mochila)
             if 'Chave 8' in escolher:
                 lista_itens_mochila.remove('Chave 8\n')
-                reescrevendo_itens_cinto(lista_itens_mochila)
+                reescrevendo_itens_mochila(lista_itens_mochila)
         else:
             lista_itens_mochila.remove(coisa)
-            
-
     return escolher
+
 
 def escolher_item():
     resp = funcoes1.usar_item()

@@ -150,6 +150,30 @@ def sala_1():
             itens.achando_carta()
 
 
+porta_trancada = str('''
+            Você mexe na maçaneta da porta e nada acontece. ESTÁ TRANCADA!
+''')
+
+def sala_2():
+    while True:
+        print(porta_trancada)
+        escolha = funcoes2.escolher_item()
+        if escolha == 'Chave 2':
+            pass
+        else: 
+            break
+
+
+def sala_3():
+    while True:
+        print(porta_trancada)
+        escolha = funcoes2.escolher_item()
+        if escolha == 'Chave 3':
+            pass
+        else: 
+            break
+
+
 def sala_4():
     print(desc_quartos)
     print(funcoes2.mostrando_atributos())
@@ -174,7 +198,53 @@ def sala_4():
         if respp == 'a':
             print(pista)
             itens.achando_tradu_carta()
-            
+
+
+def sala_5():
+    print(desc_quartos)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(desc_quartos2)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(acao_1)
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == 'a':
+        i = 0
+        while True:
+            print(lista_S1[i])
+            funcoes2.mostrando_atributos()
+            input('Tecle "enter" para avançar')
+            sleep(1)
+            i=i+1
+            if lista_S1[i] == lista_S1[-1]:
+                print(lista_S1[-1])
+                break
+        respp = input('Responda e tecle "enter" para avançar\n').lower()
+        if respp == 'a':
+            print(pista)
+            itens.achando_tradu_carta()
+
+
+S5_p1 = str('''
+            Ao abrir a porta você pode ver uma espécie de escritório, provavelmente de um dos médicos
+            da época que o hospital ainda estava em funcionamento.
+''')
+
+S5_p2 = str('''
+            Neste escritório há uma mesa bem ao centro, uma cadeira atrás, armários e escrivaninhas quebradas
+            e  
+''')
+
+def sala_6():
+    while True:
+        print(porta_trancada)
+        escolha = funcoes2.escolher_item()
+        if escolha == 'Chave 6':
+            pass
+        else: 
+            break
+        
 
 def quartos(quarto):
     if quarto == 'Sala 1':
@@ -182,9 +252,11 @@ def quartos(quarto):
         sala_1()
     if quarto == 'Sala 2':
         funcoes2.movimentacao()
+        sala_2()
         
     if quarto == 'Sala 3':
         funcoes2.movimentacao()
+        sala_3()
         
     if quarto == 'Sala 4':
         funcoes2.movimentacao()
@@ -195,6 +267,7 @@ def quartos(quarto):
         
     if quarto == 'Sala 6':
         funcoes2.movimentacao()
+        sala_6()
         
 
 
