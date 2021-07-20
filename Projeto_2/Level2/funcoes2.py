@@ -64,6 +64,13 @@ def mostrando_vida():
     return lista_pontos_vida
 
 
+def reescrevendo_itens_cinto(lista_itens_novos):
+    caminho = os.path.join(PATH, CINTO_ARQ) 
+    with open(caminho, 'w') as arq:
+        for item in lista_itens_novos:
+            arq.write(str(item) + "\n")
+
+
 def mostrando_atributos():
     lista_itens_cinto = lendo_cinto_arq()
     quant_cinto = len(lista_itens_cinto)
@@ -76,7 +83,6 @@ def mostrando_atributos():
     print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\n{mostrando_vida()}')
     
 
-
 def movimentacao():
     lista_movimento = ['_','_','_','_','_','_','_','_','_','&']
     print(lista_movimento)
@@ -86,3 +92,86 @@ def movimentacao():
         lista_movimento.pop(0)
         print(lista_movimento)
         paco = input('')
+
+
+def escolha_onde_guardar(item):
+    print('''           
+                Onde deseja guardar?
+    
+                a- Cinto
+                s- Mochila
+    ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    if resp == 'a':
+        guardar_1_item_cinto(item)
+    if resp == 's':
+        guardar_1_item_mochila(item)
+
+
+def deseja_guardar(item):
+    print('''           
+                Deseja guardar este ítem?
+    
+                a- Sim
+                s- Não
+    ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    if resp == 'a':
+        escolha_onde_guardar(item)
+    if resp == 's':
+        print(F'{item} foi descartado')  
+
+
+def guardar_1_item_cinto(item):
+    num_max_item = 4
+    caminho = os.path.join(PATH, CINTO_ARQ) 
+    lista_itens_cinto = lendo_cinto_arq()
+    if len(lista_itens_cinto)>= num_max_item:
+        print(f"Cinto cheio, coloque {item} na mochila ou remova um outro ítem")
+        guardar_mochila_ou_remover(item)
+    else:
+        with open(caminho, 'a') as arq:
+            arq.write(str(item) + "\n")
+        print("Item adicionado ao cinto")  
+
+
+def guardar_1_item_mochila(item):
+    caminho = os.path.join(PATH, MOCHILA_ARQ) 
+    with open(caminho, 'a') as arq:
+        arq.write(str(item) + "\n")
+    print("Item adicionado a mochila")
+
+
+def guardar_mochila_ou_remover(item):
+    print(f'''           
+                Onde deseja fazer?
+    
+                a- Guardar {item} na mochila
+                s- Remover um item da mochila para guardar {item}
+    ''')
+    resp = input('Responda e aperte "enter" para continuar\n')
+    if resp == 'a':
+        guardar_1_item_mochila(item)
+        print("Item adicionado a mochila")
+    if resp == 's':
+        remover_item_cinto()
+        guardar_1_item_cinto(item)
+
+
+def remover_item_cinto():
+    while True:
+        lista_itens_cinto = lendo_cinto_arq()
+        for item in lista_itens_cinto:
+            print(item)
+        remover = input("Escreva, da forma mostrada na tela, o item que deseja remover:\n")
+        lista_itens_cinto.remove(remover)
+        print('''
+                    Deseja remover mais algum item?
+
+                    a- Sim
+                    s- Não
+        ''')
+        reescrevendo_itens_cinto(lista_itens_cinto)
+        resp = input('Responda e aperte "enter" para continuar')
+        if resp == 's':
+            break

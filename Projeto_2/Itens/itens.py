@@ -1,5 +1,6 @@
 from time import sleep
 from Level1 import funcoes1
+from Level2 import funcoes2
 
 FACA = str('''
                 =====================================
@@ -306,3 +307,15 @@ def achando_cofre():
             break
         else: 
             print('Senha incorreta!! tente novamente.')
+
+
+def achando_carta():
+    carta = 'Carta'
+    print(CARTA)
+    funcoes2.deseja_guardar(carta)
+
+
+def achando_tradu_carta():
+    tradu_carta = 'Tradução da Carta'
+    print(TRADU_CARTA)
+    funcoes2.deseja_guardar(tradu_carta)

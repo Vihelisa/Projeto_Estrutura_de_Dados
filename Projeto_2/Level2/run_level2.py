@@ -46,9 +46,5 @@ def exploracao():
             pos = pos+1
         if resp in 'jJ':
             pos = pos-1
-        if resp in 'sS':
-            print("Saindo")
-            funcoes2.movimentacao()
-            break
     return gameover
     

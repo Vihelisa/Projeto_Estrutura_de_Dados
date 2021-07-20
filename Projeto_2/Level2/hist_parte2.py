@@ -1,5 +1,6 @@
 from Level2 import funcoes2
 from time import sleep
+from Itens import itens
 
 
 parag1= str('''
@@ -27,7 +28,7 @@ parag5= str('''
                         REPRESENTAÇÃO DO LOCAL
                                                       _______
                                                      /=\     \ 
-            ==========___========__========___=====/\=       |_____
+            ==========___========___========___=====/\=       |_____
             =###            ###        U U              ##    | | | |
             =                                           ##    | | | |
             =              ###       U U U                    |_|_|_|
@@ -69,7 +70,6 @@ decisao_acao = str('''
 
             l- para ir para frente
             j- para ir para trás
-            s- para ir para a escada
 
             Para escolher um quarto escreva o nome que aparece na tela
 ''')
@@ -88,7 +88,7 @@ desc_quartos2 = str('''
             e eram tantas que precisavam dormir no chão.
 ''')
 
-acao_S1 = str('''
+acao_1 = str('''
             Deseja esplorar o lugar?
 
             a- Entrar e explora o lugar
@@ -119,6 +119,11 @@ S1_p4 = str('''
 
 lista_S1 = [S1_p1, S1_p2, S1_p3, S1_p4]
 
+pista = str('''
+            Perto da parede, antes escondido entre uma das pernas da cama, você consegue 
+            achar um papel com algo nele.
+''')
+
 def sala_1():
     print(desc_quartos)
     print(funcoes2.mostrando_atributos())
@@ -126,7 +131,7 @@ def sala_1():
     print(desc_quartos2)
     print(funcoes2.mostrando_atributos())
     input('Tecle "enter" para avançar')
-    print(acao_S1)
+    print(acao_1)
     resp = input('Responda e tecle "enter" para avançar\n').lower()
     if resp == 'a':
         i = 0
@@ -141,7 +146,35 @@ def sala_1():
                 break
         respp = input('Responda e tecle "enter" para avançar\n').lower()
         if respp == 'a':
-            pass
+            print(pista)
+            itens.achando_carta()
+
+
+def sala_4():
+    print(desc_quartos)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(desc_quartos2)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(acao_1)
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == 'a':
+        i = 0
+        while True:
+            print(lista_S1[i])
+            funcoes2.mostrando_atributos()
+            input('Tecle "enter" para avançar')
+            sleep(1)
+            i=i+1
+            if lista_S1[i] == lista_S1[-1]:
+                print(lista_S1[-1])
+                break
+        respp = input('Responda e tecle "enter" para avançar\n').lower()
+        if respp == 'a':
+            print(pista)
+            itens.achando_tradu_carta()
+            
 
 def quartos(quarto):
     if quarto == 'Sala 1':
@@ -155,6 +188,7 @@ def quartos(quarto):
         
     if quarto == 'Sala 4':
         funcoes2.movimentacao()
+        sala_4()
         
     if quarto == 'Sala 5':
         funcoes2.movimentacao()
