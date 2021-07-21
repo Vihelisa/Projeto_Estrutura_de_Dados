@@ -3,7 +3,7 @@ from time import sleep
 from Level1 import hist_parte1, funcoes1, dec_a, dec_d, dec_s, dec_w, mecanica
 
 
-#história parte 1:
+# história parte 1:
 def hist1():
     i = 0
     while True:
@@ -11,10 +11,11 @@ def hist1():
         print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
         sleep(1)
-        i=i+1
+        i = i+1
         if hist_parte1.historia_parte1[i] == hist_parte1.historia_parte1[-1]:
             print(hist_parte1.historia_parte1[-1])
             break
+
 
 def pensamento1():
     print("Vida:", funcoes1.mostrando_vida())
@@ -34,7 +35,8 @@ def pensamento1():
     print(hist_parte1.parag10)
     print("Vida:", funcoes1.mostrando_vida())
     input('Tecle "enter" para avançar')
-    
+
+
 def nome1():
     nome = hist_parte1.quem_e_voce()
     funcoes1.guardando_nome(nome)
@@ -42,6 +44,7 @@ def nome1():
     pensa = hist_parte1.pensando_no_nome()
     print(pensa)
     input('Tecle "enter" para avançar')
+
 
 def movimento_1():
     print(hist_parte1.decisao_acao1)
@@ -61,6 +64,7 @@ def movimento_1():
         print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
 
+
 def quartinho():
     i = 0
     while True:
@@ -68,10 +72,11 @@ def quartinho():
         print("Vida:", funcoes1.mostrando_vida())
         input('Tecle "enter" para avançar')
         sleep(1)
-        i=i+1
+        i = i+1
         if hist_parte1.lista_quarto[i] == hist_parte1.lista_quarto[-1]:
             print(hist_parte1.lista_quarto[-1])
             break
+
 
 def movimento_2():
     input('Tecle "enter" para avançar')
@@ -95,18 +100,21 @@ def movimento_2():
         input('Tecle "enter" para avançar')
         funcoes1.movimentacao()
 
-#Saiu do quarto:
-def  descricao_corredor():
+# Saiu do quarto:
+
+
+def descricao_corredor():
     i = 0
     while True:
         print(hist_parte1.lista_corredor[i])
         funcoes1.mostrando_atributos()
         input('Tecle "enter" para avançar')
         sleep(1)
-        i=i+1
+        i = i+1
         if hist_parte1.lista_corredor[i] == hist_parte1.lista_corredor[-1]:
             print(hist_parte1.lista_corredor[-1])
             break
+
 
 def explorando_quartos():
     pos = 1
@@ -117,6 +125,7 @@ def explorando_quartos():
             print(hist_parte1.gameover)
             gameover = True
             break
+
         print(f'''
                  ====================================================
 
@@ -124,21 +133,45 @@ def explorando_quartos():
 
                  ====================================================
         ''')
+
         sleep(1.25)
-        print(hist_parte1.decisao_acao3)
+        if pos == (len(hist_parte1.lista_quartos)-2):
+            print('''
+                    Você chegou ao fim do corredor.
+                    Para onde deseja ir?
+
+                    j- para ir para trás
+
+                    s- para ir para a escada
+
+                    Para escolher um quarto escreva o nome que aparece na tela
+                    ''')
+        elif pos == 1:
+            print('''
+                    O corredor começa aqui.
+                    Para onde deseja ir?
+
+                    l- para ir para frente
+
+                    s- para ir para a escada
+
+                    Para escolher um quarto escreva o nome que aparece na tela
+                    ''')
+        else:
+            print(hist_parte1.decisao_acao3)
+
         funcoes1.mostrando_atributos()
         resp = input('Responda e tecle "enter" para avançar\n')
         if resp in hist_parte1.lista_quartos:
             hist_parte1.quartos(resp)
         if resp in 'lL':
             pos = pos+1
+
         if resp in 'jJ':
             pos = pos-1
+
         if resp in 'sS':
             print("Saindo")
             funcoes1.movimentacao()
             break
     return gameover
-    
-
-

@@ -1,4 +1,4 @@
 saindo = str('''
-            Assustado, você simplismente com um impulso inesplicável sai
-            deste quato, tentado entender melhor que lugar é esse.
+            Assustado, você simplesmente com um impulso inesplicável sai
+            deste quarto, tentando entender melhor que lugar é esse.
 ''')
