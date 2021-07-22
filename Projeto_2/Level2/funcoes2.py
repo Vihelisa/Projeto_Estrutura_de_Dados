@@ -416,3 +416,87 @@ def luta_2(dano):
             if i == len(BOOS2)-1:
                 i=0
                 #print('Voltando')
+
+
+def luta_3(dano):
+    vida_boss3()
+    i = 0
+    print(f'''
+                        =================================
+                        =                               =
+                        =          PENSA RÁPIDO         =
+                        =                               =
+                        =================================
+        ''')
+    while True:
+        print(BOOS3[i])
+        resp = input("Digite as letras sem espaço \n")
+        if resp == BOOS3[i]:
+            print(f'''
+                        ==============================
+                        =                            =
+                        =   Você atacou a criatura   =
+                        =       {dano} de Dano           =
+                        =                            =
+                        ==============================
+                ''')
+            lista_vida_boss = lendo_vida_boss()
+            lista_vida = mostrando_vida()
+            tam_atual = reescrevendo_vida_boss(lista_vida_boss, dano)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Kadrec:{len_boss}          =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            i = i+1
+            if tam_atual == 0:
+                print('''
+                        =============================
+                        =                           =
+                        =   A CRIATURA ESTÁ MORTA   =
+                        =                           =
+                        =============================
+                ''')
+                break
+            if i == len(BOOS3)-1:
+                i=0
+                #print('Voltando')
+        else:
+            i = i+1
+            print('ERROU')
+            print('''
+                        =====================================
+                        =                                   =
+                        =   Kadrec te atacou e sugou suas   =
+                        =      memórias para ele levando    =
+                        =       parte da sua vida junto     =
+                        =              2 de Dano            =
+                        =                                   =
+                        =====================================
+                ''')
+
+            dano_boss = 6
+            lista_vida = mostrando_vida()
+            lista_vida_boss = lendo_vida_boss()
+            tam_atual = reescrevendo_vida_luta(lista_vida, dano_boss)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Kadrec:{len_boss}      =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            if len(lista_vida) == 0:
+                print('MORTO')
+                break
+            if i == len(BOOS3)-1:
+                i=0
+                #print('Voltando')

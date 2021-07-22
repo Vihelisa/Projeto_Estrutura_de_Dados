@@ -276,7 +276,33 @@ def sala_3():
         print(porta_trancada)
         escolha = funcoes2.escolher_item()
         if escolha == 'Chave 3':
-            pass
+            print(S2_p1)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(acao_1)
+            resp = input('Responda e tecle "enter" para avançar\n').lower()
+            if resp == 'a':
+                i = 0
+                while True:
+                    print(lista_boss_1[i])
+                    funcoes2.mostrando_atributos()
+                    input('Tecle "enter" para avançar')
+                    sleep(1)
+                    i=i+1
+                    if lista_boss_1[i] == lista_boss_1[-1]:
+                        print(lista_boss_1[-1])
+                        break
+                arma = funcoes2.escolher_item()
+                if arma == 'Glock G42':
+                    dano = 3
+                    funcoes2.luta_3(dano)
+                if arma == 'Faca':
+                    dano = 1
+                    funcoes2.luta_3(dano)
+                if arma == 'Espingarda':
+                    dano = 5
+                    funcoes2.luta_3(dano)
+                break
         else: 
             break
 
