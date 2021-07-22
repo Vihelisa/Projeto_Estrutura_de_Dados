@@ -12,8 +12,8 @@ VIDA_BOSS_ARQ = 'vida_boss.txt'
 NOMES_ALEATORIOS2 = ["Gabriel", "Isabela", "João"]
 MOCHILA_ARQ = "mochila.txt"
 CINTO_ARQ = "cinto.txt"
-
-
+BOOS2 = ['w', 'r', 'l', 'u', 'i', 'd', 'k', 'a', 's', 'c']
+BOOS3 = ['s' 'f' 'b' 'j' 'c' 'b' 'u' 'h' 'f' 'i' 'l' 'e' 'k' 'v', 'a', 'x']
 
 
 def guardando_nome(nome):
@@ -55,6 +55,15 @@ def lendo_cinto_arq():
     return lista_itens_cinto
 
 
+def lendo_vida_boss():
+    lista_vida_boss = []
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    with open(caminho, "r") as arq:
+        for linha in arq:
+            lista_vida_boss.append(linha)
+    return lista_vida_boss
+
+
 def mostrando_vida():
     lista_pontos_vida = []
     caminho = os.path.join(PATH, VIDA_ARQ)
@@ -63,6 +72,26 @@ def mostrando_vida():
             ponto = ponto.replace("\n", "")
             lista_pontos_vida.append(ponto)
     return lista_pontos_vida
+
+
+def vida_boss2():
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    num = 40
+    with open(caminho, 'w') as arq:
+        while num > 0:
+            arq.write(str('@\n'))
+            #print(num)
+            num = num -1
+
+
+def vida_boss3():
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    num = 60
+    with open(caminho, 'w') as arq:
+        while num > 0:
+            arq.write(str('@\n'))
+            #print(num)
+            num = num -1
 
 
 def reescrevendo_itens_cinto(lista_itens_novos):
@@ -79,6 +108,35 @@ def reescrevendo_itens_mochila(lista_itens_novos):
             arq.write(str(item))
 
 
+def reescrevendo_vida_boss(lista, dano):
+    caminho = os.path.join(PATH, VIDA_BOSS_ARQ)
+    tam = len(lista) - dano
+    while tam != len(lista):
+        lista.remove('@\n')
+        tam_atual = len(lista)
+        if tam_atual == 0:
+            break
+    with open(caminho, 'w') as arq:
+        for item in lista:
+            arq.write(str(item))
+    return tam_atual
+
+
+def reescrevendo_vida_luta(lista, dano):
+    caminho = os.path.join(PATH, VIDA_ARQ)
+    tam = len(lista) - dano
+    while tam != len(lista):
+        lista.remove('%')
+        tam_atual = len(lista)
+        if tam_atual == 0:
+            break
+    with open(caminho, 'w') as arq:
+        for item in lista:
+            arq.write(str(item)+ '\n')
+    return tam_atual
+
+
+
 def mostrando_atributos():
     lista_itens_cinto = lendo_cinto_arq()
     quant_cinto = len(lista_itens_cinto)
@@ -88,7 +146,7 @@ def mostrando_atributos():
     else:
         last_item = lista_itens_mochi[-1]
     
-    print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\n{mostrando_vida()}')
+    print(f'\nQuantidade de ítes no cinto: {quant_cinto}\nUltimo ítem da mochila: {last_item}\nVida: {mostrando_vida()}')
     
 
 def movimentacao():
@@ -239,14 +297,14 @@ def pegar_item_mochila():
         print(item)
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
     for coisa in lista_itens_mochila[::-1]:
-        if coisa in escolher:
+        if escolher == coisa:
             if 'Cura-1' in escolher:
-                utilizando.usando_cura(escolher)
-                lista_itens_mochila.remove('Cura-1\n')
+                utilizando.cura1()
+                lista_itens_mochila.remove('Cura-1')
                 reescrevendo_itens_mochila(lista_itens_mochila)
             if 'Cura-2' in escolher:
-                utilizando.usando_cura(escolher)
-                lista_itens_mochila.remove('Cura-2\n')
+                utilizando.cura2()
+                lista_itens_mochila.remove('Cura-2')
                 reescrevendo_itens_mochila(lista_itens_mochila)
             if 'Chave 2' in escolher:
                 lista_itens_mochila.remove('Chave 2\n')
@@ -275,3 +333,86 @@ def escolher_item():
         escolha = None
     return escolha
 
+
+def luta_2(dano):
+    vida_boss2()
+    i = 0
+    print(f'''
+                        =================================
+                        =                               =
+                        =          PENSA RÁPIDO         =
+                        =                               =
+                        =================================
+        ''')
+    while True:
+        print(BOOS2[i])
+        resp = input("Digite as letras sem espaço \n")
+        if resp == BOOS2[i]:
+            print(f'''
+                        ==============================
+                        =                            =
+                        =   Você atacou a criatura   =
+                        =       {dano} de Dano           =
+                        =                            =
+                        ==============================
+                ''')
+            lista_vida_boss = lendo_vida_boss()
+            lista_vida = mostrando_vida()
+            tam_atual = reescrevendo_vida_boss(lista_vida_boss, dano)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Kadrec:{len_boss}          =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            i = i+1
+            if tam_atual == 0:
+                print('''
+                        =============================
+                        =                           =
+                        =   A CRIATURA ESTÁ MORTA   =
+                        =                           =
+                        =============================
+                ''')
+                break
+            if i == len(BOOS2)-1:
+                i=0
+                #print('Voltando')
+        else:
+            i = i+1
+            print('ERROU')
+            print('''
+                        =====================================
+                        =                                   =
+                        =   Kadrec te atacou e sugou suas   =
+                        =      memórias para ele levando    =
+                        =       parte da sua vida junto     =
+                        =              2 de Dano            =
+                        =                                   =
+                        =====================================
+                ''')
+
+            dano_boss = 4
+            lista_vida = mostrando_vida()
+            lista_vida_boss = lendo_vida_boss()
+            tam_atual = reescrevendo_vida_luta(lista_vida, dano_boss)
+            len_vida = {len(lista_vida)}
+            len_boss = {len(lista_vida_boss)}
+            print(f'''
+                        =========================================================
+                        =                                                       =
+                        =       Você:{len_vida}                      Kadrec:{len_boss}      =
+                        =                                                       =
+                        =========================================================
+            ''')
+            #print(tam_atual)
+            if len(lista_vida) == 0:
+                print('MORTO')
+                break
+            if i == len(BOOS2)-1:
+                i=0
+                #print('Voltando')

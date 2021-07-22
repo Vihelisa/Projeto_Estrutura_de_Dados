@@ -70,6 +70,21 @@ ARMA1 = str('''
                 =====================================
 ''')
 
+ARMA2 = str('''
+                =============================================================
+                =                                                           =
+                =          __________________________________________       =
+                =         /_________|_______________________________|       =
+                =        /__________|______|::::::::|_____________|         =
+                =        |::: /_))_//      |________|                       =
+                =        \:: /                                              =
+                =        /:: \                                              =
+                =        |::_/                                              =
+                =============================================================
+                =                  ESPINGARDA -> 5 DE DANO                  =
+                =============================================================
+''')
+
 DOCUMENTO_COB_5152 = str('''
             _____________________________________________________________________
             |                                                                   |
@@ -185,7 +200,7 @@ CHAVE_6 = str('''
             =           /::::/\::::\            =
             =        /::::/ /  \ \::::\         =
             =       /::::/        \::::\        =
-            =           |   ====  |            =
+            =           |   ====   |            =
             =           |   |___   |            =
             =            \  |___| /             =
             =             \______/              =
@@ -226,6 +241,36 @@ RELATORIO = str('''
             |___________________________________________________________________|
 ''')
 
+RELATORIO_2 = str('''
+            _____________________________________________________________________
+            |                                                                   |
+            | Dr. Fernando Nogueira Nobrega                                     |
+            | Data: 09/01/1963                                                  |
+            | Local: Hospital de Reabilitação Psiquiatra Colônia                |
+            | Endereço: Barbacoa,  Montes Uivantes - Brasil                     |
+            |                                                                   |
+            |                                                                   |
+            |  Dr. Joseph ainda pede pacientes para realizar os seus tratamentos|
+            |alternativos, cada dia ele pede que recrutemos mais candidatos para|
+            |ele. Porém, uma coisa que acho muito estranha é que nunca os vejo  |
+            |novamente. Eu sinto falta da senhorinha que todas as manhãs        |
+            |sentava no banco, ao lado de seu dormitório, para comer seu pão com|
+            |cafézinho já que os refeitórios sempre estão lotados. Ou então don-|
+            |zela que sempre sempre conversava comigo sobre assuntos mais sérios|
+            |e até um pouco estranhos as vezes. Muitas das vezes os assuntos re-|
+            |lacionávam-se a física, ela sempre pareceu saber muito sobre os as-|
+            |suntos que conversávamos, mas seu marido avisou que ela era muito  |
+            |manipuladora e por isso faria-nos pensar que estaria sã. Aliás ele |
+            |é um físico renomado, pode ser que essa fixação pela área seja por |
+            |causa da genialidade de seu marido.                                |
+            |     Bom de qualquer forma, eu vim para este hospital por ser refe-|
+            |rência na área da psiquiatria, mas começo a pensar que sumir com   |
+            |pessoas ou fazer com que seus pacientes percam a capacidade da fala|
+            |ou enxergar ou andar não seja um tipo de tratamento e sim tortura. |
+            |Mal posso esperar pela resposta da aprovação para trabalhar em To- |
+            |ledo e poder finalmente sair daqui. Por onde passo sinto arrepios. |
+            |___________________________________________________________________|
+''')
 
 CARTA = str('''
             _____________________________________________________
@@ -251,6 +296,37 @@ TRADU_CARTA = str('''
             |   9 = P   & = F   } = H                   |
             |___________________________________________|
 ''')
+
+
+DICA = str('''
+            _____________________________________________
+            |                                           |
+            |         Os 3 primeiros se repetem         |
+            |           e o quarto é singular,          |
+            |         para quem tenta se comunicar.     |
+            |                                           |
+            |___________________________________________|
+''')
+
+CARTA2 = str('''
+            _________________________________________________________
+            |                                                       |
+            |   Eu não sei o que que pode estar acontecendo comigo, |
+            |   é como se eu não tivesse mais controle sobre mim.   |
+            |   Eu tenho pesadelos o tempo todo, até mesmo durante  |
+            |   o dia. EU NÃO TENHO MAIS CONTROLE DOS MEUS pEnSaR   |
+            |   Eu preciso de AJUDA, mas não desse lugar.           |
+            |                                                       |
+            |   Fizeram uma cirurgia no meu cérebro, agora sinto que|
+            |   estou MaIs inteliGenTE DO QUE NUNCA, mas Ele NÃO VAI|
+            |   PEGAAARRRR, É MEU, TUDO MEU.                        |
+            |                                                       |
+            |           Preciso respirar, antes que eu me perca de  |
+            |           vez, mas acho que cheguei a resposta        |
+            |                                7%394^4548             |
+            |_______________________________________________________|
+''')
+
 
 
 def achando_faca():
@@ -281,9 +357,22 @@ def achando_arma_1():
     funcoes1.deseja_guardar(arma_1)
 
 
+def achando_arma_2():
+    arma_2 = 'Espingarda'
+    print('''           Você achou uma Espingarda''')
+    print(ARMA2)
+    funcoes1.deseja_guardar(arma_2)
+
+
 def achando_relatorio():
     relatorio = 'Relatorio 1'
     print(RELATORIO)
+    funcoes1.deseja_guardar(relatorio)
+
+
+def achando_relatorio2():
+    relatorio = 'Relatorio 2'
+    print(RELATORIO_2)
     funcoes1.deseja_guardar(relatorio)
 
 
@@ -341,13 +430,50 @@ def achando_cofre():
             print('Senha incorreta!! tente novamente.')
 
 
+def achando_cofre2():
+    print(COFRE)
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    funcoes2.escolher_item()
+    print(COFRE)
+    print(funcoes1.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    while True:
+        print('''
+                    QUAL A SENHA DO COFRE??
+
+                    s- para sair das tentativas
+        ''')
+        resp = input('Responda e tecle "enter" para avançar\n')
+        if resp == '3063':
+            achando_arma_2()
+            input('Tecle "enter" para avançar')
+            achando_chave2()
+            input('Tecle "enter" para avançar')
+            achando_relatorio2()
+            break
+        elif resp == 's':
+            break
+        else: 
+            print('Senha incorreta!! tente novamente.')
+
+
 def achando_carta():
     carta = 'Carta'
     print(CARTA)
     funcoes2.deseja_guardar(carta)
 
+def achando_carta2():
+    carta = 'Carta 2'
+    print(CARTA2)
+    funcoes2.deseja_guardar(carta)
 
 def achando_tradu_carta():
     tradu_carta = 'Tradução da Carta'
     print(TRADU_CARTA)
     funcoes2.deseja_guardar(tradu_carta)
+
+def achando_dica():
+    dica = 'Dica'
+    print(DICA)
+    funcoes2.deseja_guardar(dica)

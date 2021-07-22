@@ -3,6 +3,7 @@ from Level1 import funcoes1
 
 def cura1():
     lista_pontos_vida = funcoes1.mostrando_vida()
+    print(len(lista_pontos_vida))
     if len(lista_pontos_vida) <= 10:
         lista_pontos_vida.append('%')
         funcoes1.reescrevendo_vida(lista_pontos_vida)
@@ -13,11 +14,19 @@ def cura1():
                     =                                   =
                     =====================================
         ''')
+    else:
+        print('''
+                    =====================================
+                    =                                   =
+                    =  Você não precisa curar sua vida  =
+                    =                                   =
+                    =====================================
+        ''')
 
 
 def cura2():
     lista_pontos_vida = funcoes1.mostrando_vida()
-    if len(lista_pontos_vida) <= 10:
+    if len(lista_pontos_vida) < 10:
         lista_pontos_vida.append('%')
         lista_pontos_vida.append('%')
         funcoes1.reescrevendo_vida(lista_pontos_vida)
@@ -28,10 +37,13 @@ def cura2():
                     =                                   =
                     =====================================
         ''')
+    else:
+        print('''
+                    =====================================
+                    =                                   =
+                    =  Você não precisa curar sua vida  =
+                    =                                   =
+                    =====================================
+        ''')
 
 
-def usando_cura(cura):
-    if '-1' in cura:
-        cura1()
-    if '-2' in cura:
-        cura2()

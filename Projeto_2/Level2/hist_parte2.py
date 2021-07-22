@@ -89,7 +89,7 @@ desc_quartos2 = str('''
 ''')
 
 acao_1 = str('''
-            Deseja esplorar o lugar?
+            Deseja explorar o lugar?
 
             a- Entrar e explora o lugar
             s- Procura ver outra sala
@@ -154,14 +154,121 @@ porta_trancada = str('''
             Você mexe na maçaneta da porta e nada acontece. ESTÁ TRANCADA!
 ''')
 
+S2_p1 = str('''
+            Você abre a porta e vê apenas mais um dormitório, cheio de camas e colchões igual
+            aos outros.
+''')
+
+boss1_p1 = str('''
+            Você entra no dormitório e anda lentamente entre as camas, uma a uma.
+''')
+
+boss1_p2 = str('''
+            Quando de repente a porta do quarto bate, fechando-se bem atrás de você.
+''')
+
+boss1_p3 = str('''
+           "Há mais alguém com você, isso é óbvio, mas quem está aqui?" 
+''')
+
+boss1_p4 = str('''
+            Pensa você enquanto olha para todos os lados.
+''')
+
+boss1_p5 = str('''
+            Então você decide olhar para cima e vê algo que NUNCA PENSOU que existiria.
+''')
+
+#Significa ladrão em macedônio
+boss1_p6 = str('''
+            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+            w               Kradec              w
+            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+''')
+
+boss1_p7 = str('''
+            Uma criatura horrenda e asquerosa que faz imlorar para tirar os olhos dela. MAS NÃO DÁ.
+            Kadrec possui algo que te hipnotiza e te faz tremer de tanto horror. 
+''')
+
+boss1_p8 = str('''
+            Ele possui um rosto estremamente fino e alongado, con trações do que um dia fora uma cabeça
+            humana e hoje deformada. No topo de sua cabeça há um braco que contem uma massa asquerosa que
+            solta uma espécie de gosma o tempo todo, parecendo um cérebro exposto, inchado e querendo entrar 
+            em decomposição. Para proteger isso, de suas têmporas saí algo que se alonga formando uma pinsa 
+            enorme q faz gotejar em você a gosma q sai da massa.
+''')
+
+boss1_p9 = str('''
+            Nele não há olhos, no lugar á uma espiral formada por cicatrises e que assando bem ao meio
+            dá lugar de destaque a uma rachadura. Logo abaixo do fm dessa rachadura uma boca enorme, 
+            cheia de dentes pontudos e afiados formando também um espiral que te chama pra dentro dele.
+''')
+
+boss1_p10 = str('''
+            A cada minuto que passa parece que Kadrec suga de ti o pouco que ainda tem, o pouco que 
+            conseguiu lembrar, ou que ainda está tentando lembrar, quem é você. Até mesmo as memorias 
+            que te restam desse lugar estão sendo pouco a pouco tiradas e roubadas de você, para alimentar 
+            esse enorme mostro que agora parece um grande cérebro gigante.
+''')
+
+lista_boss_1 = [boss1_p1, boss1_p2, boss1_p3, boss1_p4, boss1_p5, boss1_p6, boss1_p7, boss1_p8, boss1_p9, boss1_p10]
+
+S2_p2 = str('''
+            Ao acabar a luta, olhando a criatura morta ao chão, você percebe que um papel começou a cair, planando, 
+            até pousar no monstro e logo em seguida algo mais pesado cai em cima do papel.
+''')
+
+S2_p3 = str('''
+            Você então chega perto e encontra...
+''')
+
 def sala_2():
     while True:
         print(porta_trancada)
         escolha = funcoes2.escolher_item()
         if escolha == 'Chave 2':
-            pass
+            print(S2_p1)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(acao_1)
+            resp = input('Responda e tecle "enter" para avançar\n').lower()
+            if resp == 'a':
+                i = 0
+                while True:
+                    print(lista_boss_1[i])
+                    funcoes2.mostrando_atributos()
+                    input('Tecle "enter" para avançar')
+                    sleep(1)
+                    i=i+1
+                    if lista_boss_1[i] == lista_boss_1[-1]:
+                        print(lista_boss_1[-1])
+                        break
+                arma = funcoes2.escolher_item()
+                if arma == 'Glock G42':
+                    dano = 3
+                    funcoes2.luta_2(dano)
+                if arma == 'Faca':
+                    dano = 1
+                    funcoes2.luta_2(dano)
+                if arma == 'Espingarda':
+                    dano = 5
+                    funcoes2.luta_2(dano)
+                break
         else: 
             break
+
+
+def drop_boss_2():
+    print(S2_p2)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(S2_p3)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    itens.achando_chave3()
+    input('Tecle "enter" para avançar')
+    itens.achando_carta2()
 
 
 def sala_3():
@@ -199,33 +306,6 @@ def sala_4():
             print(pista)
             itens.achando_tradu_carta()
 
-
-def sala_5():
-    print(desc_quartos)
-    print(funcoes2.mostrando_atributos())
-    input('Tecle "enter" para avançar')
-    print(desc_quartos2)
-    print(funcoes2.mostrando_atributos())
-    input('Tecle "enter" para avançar')
-    print(acao_1)
-    resp = input('Responda e tecle "enter" para avançar\n').lower()
-    if resp == 'a':
-        i = 0
-        while True:
-            print(lista_S1[i])
-            funcoes2.mostrando_atributos()
-            input('Tecle "enter" para avançar')
-            sleep(1)
-            i=i+1
-            if lista_S1[i] == lista_S1[-1]:
-                print(lista_S1[-1])
-                break
-        respp = input('Responda e tecle "enter" para avançar\n').lower()
-        if respp == 'a':
-            print(pista)
-            itens.achando_tradu_carta()
-
-
 S5_p1 = str('''
             Ao abrir a porta você pode ver uma espécie de escritório, provavelmente de um dos médicos
             da época que o hospital ainda estava em funcionamento.
@@ -233,8 +313,64 @@ S5_p1 = str('''
 
 S5_p2 = str('''
             Neste escritório há uma mesa bem ao centro, uma cadeira atrás, armários e escrivaninhas quebradas
-            e  
+            e  quadros velhos nas paredes. Por mais incrível que pareça, esse é o lugar mais bem preservado
+            até agora.
 ''')
+
+S5_p3 = str('''
+            Pra onde deseja ir?
+
+            a- Escrivaninha
+            w- Ver quadros nas paredes
+            s- Sair do quarto
+''')
+
+S5_p4 = str('''
+            Você começa a observar todos os quadros ao redor do esritório. Alguns são de anatomia, outros
+            apenas belas imagens, mas há um estranho. Então ao observar esse enorme quadro centralizado na parede
+            principal do escritório, uma cópia muito bem feita de "O grito", você percebe que na verdade ele é 
+            um cofre.
+''')
+
+S5_p5 = str('''
+            Então apenas de olhar para a escrivaninha você vê...
+''')
+
+S5_p6 = str('''
+            E bem embaixo você vê...
+''')
+
+def sala_5():
+    print(S5_p1)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(S5_p2)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(acao_1)
+    resp = input('Responda e tecle "enter" para avançar\n').lower()
+    if resp == 'a':
+        i = 0
+        while True:
+            print(S5_p3)
+            funcoes2.mostrando_atributos()
+            respp = input('Responda e tecle "enter" para avançar\n').lower()
+            if respp == 'a':
+                print(S5_p5)
+                itens.achando_chave2()
+                print(funcoes2.mostrando_atributos())
+                input('Tecle "enter" para avançar')
+                print(S5_p6)
+                itens.achando_dica() 
+            if respp == 'w':
+                print(S5_p4)
+                print(funcoes2.mostrando_atributos())
+                input('Tecle "enter" para avançar')
+                itens.achando_cofre2()
+            if respp == 's':
+                funcoes2.movimentacao()
+                break
+
 
 def sala_6():
     while True:
@@ -253,6 +389,9 @@ def quartos(quarto):
     if quarto == 'Sala 2':
         funcoes2.movimentacao()
         sala_2()
+        lista_vida = funcoes2.mostrando_vida()
+        if len(lista_vida) > 0:
+            drop_boss_2()
         
     if quarto == 'Sala 3':
         funcoes2.movimentacao()
@@ -264,6 +403,7 @@ def quartos(quarto):
         
     if quarto == 'Sala 5':
         funcoes2.movimentacao()
+        sala_5()
         
     if quarto == 'Sala 6':
         funcoes2.movimentacao()

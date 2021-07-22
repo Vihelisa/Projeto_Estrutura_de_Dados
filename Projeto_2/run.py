@@ -9,6 +9,8 @@ def run():
         if gameover == True:
             break
         else:
-            runing_level.level_2()
+            game_over = runing_level.level_2()
+            if game_over == True:
+                break
 
 run()
