@@ -341,20 +341,17 @@ def pegar_item_mochila():
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
     for coisa in lista_itens_mochila[::-1]:
         if coisa in escolher:
-            if 'Cura-1' in escolher:
+            if 'Cura-1' == escolher:
                 utilizando.usando_cura(escolher)
                 lista_itens_mochila.remove('Cura-1\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Cura-2' in escolher:
+            if 'Cura-2' == escolher:
                 utilizando.usando_cura(escolher)
                 lista_itens_mochila.remove('Cura-2\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Chave 2' in escolher:
+            if 'Chave 2' == escolher:
                 lista_itens_mochila.remove('Chave 2\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Chave 8' in escolher:
+            if 'Chave 8' == escolher:
                 lista_itens_mochila.remove('Chave 8\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
+            reescrevendo_itens_mochila(lista_itens_mochila)
         else:
             lista_itens_mochila.remove(coisa)
     return escolher

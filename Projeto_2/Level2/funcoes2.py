@@ -292,29 +292,29 @@ def pegar_item_cinto():
 
 def pegar_item_mochila():
     lista_itens_mochila = lendo_mochila_arq()
+    lista_nova_mochila = []
     for item in lista_itens_mochila[::-1]:
         print(item)
+        lista_nova_mochila.append(item)
     escolher = input("Escreva, da forma mostrada na tela, o item que deseja escolher:\n")
     for coisa in lista_itens_mochila[::-1]:
-        if escolher == coisa:
-            if 'Cura-1' in escolher:
+        if escolher in coisa:
+            if 'Cura-1' == escolher:
                 utilizando.cura1()
-                lista_itens_mochila.remove('Cura-1')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Cura-2' in escolher:
+                lista_itens_mochila.remove('Cura-1\n')
+            if 'Cura-2' == escolher:
                 utilizando.cura2()
-                lista_itens_mochila.remove('Cura-2')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Chave 2' in escolher:
+                lista_itens_mochila.remove('Cura-2\n')
+            if 'Chave 2' == escolher:
                 lista_itens_mochila.remove('Chave 2\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Chave 8' in escolher:
+            if 'Chave 8' == escolher:
                 lista_itens_mochila.remove('Chave 8\n')
-                reescrevendo_itens_mochila(lista_itens_mochila)
-            if 'Carta' in escolher:
+            if 'Carta' == escolher:
                 print(itens.CARTA)
             if 'Tradução da Carta' in escolher:
                 print(itens.TRADU_CARTA)
+            reescrevendo_itens_mochila(lista_itens_mochila)
+            break
         else:
             lista_itens_mochila.remove(coisa)
     return escolher

@@ -45,5 +45,4 @@ def level_1():
 def level_2():
     run_level2.hist2()
     game_over = run_level2.exploracao()
-
     return game_over

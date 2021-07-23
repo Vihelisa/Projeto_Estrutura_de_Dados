@@ -36,30 +36,11 @@ def exploracao():
              ====================================================
         ''')
         # sleep(1.25)
-        if pos == 1:
-            print(print('''
-                    O corredor começa aqui.
-                    Para onde deseja ir?
-
-                    l- para ir para frente
-
-                    s- para ir para a escada
-
-                    Para escolher um quarto escreva o nome que aparece na tela
-                    '''))
-        elif pos == (len(hist_parte2.lista_salas)-2):
-            print('''
-            Você chegou ao fim do corredor.
-            Para onde deseja ir?
-
-
-            j- para ir para trás
-            s- para ir para a escada
-
-            Para escolher um quarto escreva o nome que aparece na tela
-            ''')
-        else:
+        
+        if pos == (len(hist_parte2.lista_salas)-2):
             print(hist_parte2.decisao_acao)
+        else:
+            print(hist_parte2.continua_corredor) 
         funcoes2.mostrando_atributos()
         resp = input('Responda e tecle "enter" para avançar\n')
         if resp in hist_parte2.lista_salas:
@@ -68,4 +49,10 @@ def exploracao():
             pos = pos+1
         if resp in 'jJ':
             pos = pos-1
+        if resp in 'sS':
+            print(hist_parte2.final, '\n', hist_parte2.obrigado)
+            break
     return gameover
+
+
+    

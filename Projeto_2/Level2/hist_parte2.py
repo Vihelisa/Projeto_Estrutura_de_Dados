@@ -65,11 +65,32 @@ def qual_seu_nome():
         funcoes2.guardando_nome(nome)
 
 
-decisao_acao = str('''
-            Escolha o quarto que deseja ir?
+comeca_corredor = str('''
+            O corredor começa aqui.
+            Para onde deseja ir?
 
             l- para ir para frente
             j- para ir para trás
+            s- para ir para a escada
+
+            Para escolher um quarto escreva o nome que aparece na tela
+''')
+
+continua_corredor = str('''
+            Qual sala deseja ir?
+
+            l- para ir para frente
+            j- para ir para trás
+            s- Ir para a escada
+
+            Para escolher um quarto escreva o nome que aparece na tela
+''')
+
+decisao_acao = str('''
+            O corredor acaba aqui!
+
+            j- para ir para trás
+            s- Ir para a escada
 
             Para escolher um quarto escreva o nome que aparece na tela
 ''')
@@ -249,12 +270,15 @@ def sala_2():
                 if arma == 'Glock G42':
                     dano = 3
                     funcoes2.luta_2(dano)
+                    funcoes2.escolher_item()
                 if arma == 'Faca':
                     dano = 1
                     funcoes2.luta_2(dano)
+                    funcoes2.escolher_item()
                 if arma == 'Espingarda':
                     dano = 5
                     funcoes2.luta_2(dano)
+                    funcoes2.escolher_item()
                 break
         else: 
             break
@@ -362,12 +386,15 @@ def sala_3():
             if arma == 'Glock G42':
                 dano = 3
                 funcoes2.luta_3(dano)
+                funcoes2.escolher_item()
             if arma == 'Faca':
                 dano = 1
                 funcoes2.luta_3(dano)
+                funcoes2.escolher_item()
             if arma == 'Espingarda':
                 dano = 5
                 funcoes2.luta_3(dano)
+                funcoes2.escolher_item()
             break
         else: 
             break
@@ -475,13 +502,107 @@ def sala_5():
                 funcoes2.movimentacao()
                 break
 
+S6_p1 = str('''
+            Você entra, com muito mais cautela e com muito medo do que pode ter ali.
+''')
+
+S6_p2 = str('''
+            Mas quando consegue ver o local por inteiro, se alivia por ver ue é apenas mais um escritório
+            não muito grande. Entretanto este é o lugar mais estranho de todos que você foi até agora.
+''')
+
+S6_p3 = str('''
+            Estranhamente este cômodo não é velho, não é antigo e está muito bem conservado. O layout 
+            é bem parecido com o outro mas há um computador, celutar, caderno, coisas bem modernas para
+            tudo que foi visto. Sem mensionar que é a coisa menos esperada nete momento.
+''')
+
+mesa_1 = str('''
+            Na mesa você vê um  celular sem bateria, um computador e alguns documentos.
+''')
+
+mesa_2 = str('''
+            No computador não precisa nemtentar descobrir se há algo nele, logo de cara você consegue ver
+            que ele está igado e há um email na tela escrito o seguinte.
+''')
+
+mesa_3 = str('''
+            " O rolchinol já está aqui, creio que já tenha acordado. Você tem razão é cruel fazer isto,
+              mas é a única opção que temos neste momento. Se ele não ver o que fizeram com a gente e não 
+              nos ajudar a cuidar disso, ninguém mais vai. "
+''')
+
+mesa_4 = str('''
+            Ao ler a palavra "rolchinol" no e-mail, algo em você acende. Este era o jeito que seu pai 
+            te chamava.
+''')
+
+mesa_5 = str('''
+            Então ao olhar ao seu redor, você vê alguns documentos, mas dois te chamam a atenção.
+''')
+
+explora_6 = str('''
+            O QUE DESEJA EXPLORAR?
+
+            a- Armário
+            w- Mesa
+            s- Sair do quarto
+''')
+
+armario = str('''
+            Ao abrir o armário, você vê roupas, sapatos, algumas luzes, suportes de armas que não possuem
+            arma alguma. Alguém está aqui e possivelmente a pessoa que te trouxe pra cá.
+''')
+
+def explorando_6():
+    while True:
+        print(explora_6)
+        resp = input('Responda e tecle "enter" para avançar\n').lower()
+        if resp == 'a':
+            print(armario)
+            input('Tecle "enter" para avançar')
+        if resp == 'w':
+            print(mesa_1)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(mesa_2)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(mesa_3)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(mesa_4)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(mesa_5)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            itens.achando_documento()
+            input('Tecle "enter" para avançar')
+            itens.achando_documento2()
+        if resp == 's':
+            break
 
 def sala_6():
     while True:
         print(porta_trancada)
         escolha = funcoes2.escolher_item()
         if escolha == 'Chave 6':
-            pass
+            print(S6_p1)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(S6_p2)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(S6_p3)
+            print(funcoes2.mostrando_atributos())
+            input('Tecle "enter" para avançar')
+            print(acao_1)
+            resp = input('Responda e tecle "enter" para avançar\n').lower()
+            if resp == 'a':
+                explorando_6()
+                funcoes2.movimentacao()
+                break
         else: 
             break
         
@@ -516,7 +637,18 @@ def quartos(quarto):
         funcoes2.movimentacao()
         sala_6()
         
-
+final = str('''
+            No final do corredor entrando no hall dos hospital há uma escada a qual você pretendia subir, 
+            mas alguém te acerta na cabeça, tudo fica escuro novamento, quem é que está aqui.
+        ''')
+        
+obrigado = str('''
+                =================================
+                =           CONTINUA...         =
+                =================================
+                
+                        Obrigado por jogar!!
+            ''')
 
 
 

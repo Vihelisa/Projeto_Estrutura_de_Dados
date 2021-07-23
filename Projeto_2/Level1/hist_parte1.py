@@ -421,9 +421,11 @@ def quarto_8():
     if arma == 'Glock G42':
         dano = 3
         funcoes1.luta(dano)
+        funcoes1.escolher_item()
     if arma == 'Faca':
         dano = 1
         funcoes1.luta(dano)
+        funcoes1.escolher_item()
         
 
 

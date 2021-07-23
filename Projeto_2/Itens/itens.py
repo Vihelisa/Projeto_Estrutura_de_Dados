@@ -327,7 +327,47 @@ CARTA2 = str('''
             |_______________________________________________________|
 ''')
 
+DOCUMENTO = str('''
+            _________________________________________________________
+            |                                                       |
+            |   Cirurgias aplicadas:                                |
+            |                                                       |
+            |   - Trepanação;                                       |
+            |   - Choque insulínico;                                |
+            |   - Lobotomia;                                        |
+            |   - Mesmerísmo;                                       |
+            |   - Fake Smile;                                       |
+            |                                                       |
+            |                                                       |
+            |   Estas foram algumas das cirurgias que consegui en-  |
+            |contrar vestígios e provas neste lugar que nunca imagi-|
+            |nei ter que voltar. Várias das criaturas que estão pre-|
+            |sas aqui, tiveram sua origem por causa de várias dessas|
+            |cirurgias experimentais, onde algumas eam feiras e não |
+            |se tem nem registro, até porquê sairam da cabeça daque-|
+            |le doutor fajuto que nos torturou por anos, eu ainda ti|
+            |ve sorte de ter sido dos últimos a chegar neste inferno|
+            |_______________________________________________________|
+''')
 
+DOCUMENTO2 = str('''
+            _____________________________________________________
+            |                                                   |
+            |   O rolchinol está aqui, não sei que momento ele  |
+            |   irá acordar mas espero que fique tão indignado  |
+            |   quanto nós que vivemos este lugar. Ele precisa  |
+            |   descobrir que foi o pai dele quem fez isso      | 
+            |   conosco. Aquele monstro, depois que foi tudo    |
+            |   descoberto, trancou o laboratório da tortura    | 
+            |   dele e conseguiu esconder as pessoas que ele    |
+            |   chamava de cobaias, ELE AS DEIXOU VIVAS AQUI    |
+            |   COM AS CIRURGIAS FEITAS OU POR TERMINAR, ELE    |
+            |   SUMIU E DEIOU ELAS PRA MORREREM. Mas por algum  |
+            |   motivo elas sobreviveram e se tornaramm monstros|
+            |   o rolchinol precina nos ajudar, ELE PRECISA     |
+            |    MOSTRAR PARA O MUNDO O MONSTRO QUE SEU PAI FOI.|
+            |___________________________________________________|
+''')
 
 def achando_faca():
     faca = 'Faca'
@@ -477,3 +517,13 @@ def achando_dica():
     dica = 'Dica'
     print(DICA)
     funcoes2.deseja_guardar(dica)
+
+def achando_documento():
+    doc = 'Documento'
+    print(DOCUMENTO)
+    funcoes2.deseja_guardar(doc)
+
+def achando_documento2():
+    doc = 'Documento 2'
+    print(DOCUMENTO2)
+    funcoes2.deseja_guardar(doc)
