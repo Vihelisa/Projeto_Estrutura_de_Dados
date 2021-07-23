@@ -1,0 +1,16 @@
+Os integrantes do grupo são:
+
+- Vitória Elisa Fernandes, PC3011666
+- Lucy Késsila Arquejada Velasco, PC3015581
+- Jéssica Carolina da Silva, PC3008916
+- Isabela Aquino de Medeiros, PC3010571
+
+Sobre o jogo:
+Este jogo foi inspirado em visual novel RPG e tem como tema suspense, terror e investigação.
+Investigue o máximo de lugares que conseguir e desvende todos os puzzles que forem apresentados, 
+para ter uma esperiência completa.
+
+Para rodar o jogo:
+- Tenha a versão mais nova do Pytho 3;
+- Abra o terminal e vá até a pasta em que estão todos os scripts do jogo;
+- Para rodar todo o jogo apenas coloco o seguinte comando: python run.py 

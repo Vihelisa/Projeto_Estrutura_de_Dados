@@ -12,5 +12,5 @@ def run():
             game_over = runing_level.level_2()
             if game_over == True:
                 break
-
+            break
 run()
