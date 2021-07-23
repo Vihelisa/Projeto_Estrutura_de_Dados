@@ -381,8 +381,8 @@ def drop_boss_3():
     print(funcoes2.mostrando_atributos())
     input('Tecle "enter" para avançar')
     itens.achando_chave6()
-    input('Tecle "enter" para avançar')
-    itens.achando_carta2()
+    '''input('Tecle "enter" para avançar')
+    itens.achando_carta2()'''
 
 
 def sala_4():
@@ -500,6 +500,9 @@ def quartos(quarto):
     if quarto == 'Sala 3':
         funcoes2.movimentacao()
         sala_3()
+        lista_vida = funcoes2.mostrando_vida()
+        if len(lista_vida) > 0:
+            drop_boss_3()
         
     if quarto == 'Sala 4':
         funcoes2.movimentacao()
