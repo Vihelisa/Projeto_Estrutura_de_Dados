@@ -223,6 +223,7 @@ S2_p3 = str('''
             Você então chega perto e encontra...
 ''')
 
+
 def sala_2():
     while True:
         print(porta_trancada)
@@ -270,41 +271,118 @@ def drop_boss_2():
     input('Tecle "enter" para avançar')
     itens.achando_carta2()
 
+S3_p1 = str('''
+            Você está assustado, por conta das criaturas estranhas que estão aparecendo.
+            Então fica relutante em relação a entrar no quarto por um momento.
+''')
+
+S3_p2 = str('''
+            Entretanto o anceio por lembrar quem é você de verdade e por qual motivo está aí é 
+            muito maior do que qualquer medo que possa ter neste momento.
+''')
+
+S3_p3 = str('''
+            Você finalmente abre a porta e vê apenas mais um dormitório, cheio de camas e colchões igual
+            aos outros.
+''')
+
+boss2_p1 = str('''
+            Porém há algo muito estranho, não precisa nem entrar para perceber isto.
+''')
+
+boss2_p2 = str('''
+            Da escuridão do canto direito no fundo do dormitório, algo começa a sair e a crescer.
+''')
+boss2_p3 = str('''
+            Você sente que não adianta correr, não adianta fazer nada, porque aquilo vai vir e 
+            tomar você por inteiro, até que não sobrem vestígios da sua existência.
+''')
+
+boss2_p4 = str('''
+            Então aquilo que antes apenas saia das sombras, agora começa a tomar forma e luz, muita luz
+            e começa vir elegantemente até você.
+''')
+
+boss2_p5 = str('''
+            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+            w              SOK ZRACI            w
+            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+''')
+
+boss2_p6 = str('''
+            Uma criatura enorme, com uma postura inigualável gritando ferossidade e poder.
+            Uma silhueta bem feminina e humana aparece por trás dos raios de choque que ela emana.
+''')
+
+boss2_p7 = str('''
+            Impiedosa, insaciável por energia, ela destroi tudo que está em seu caminho. O que ela toca
+            automaticamente se desfaz através de seus raiois. 
+''')
+
+boss2_p8 = str('''
+            Sua cabeça fina e alongada, igual as outras criaturas que apareceram, contem dois olhos puchados, 
+            fudos, pretos e vazios como dois buracos que penetram cada célula, querendo até mesmo o pequeno
+            campo elétrico feito pelos átodos que constituem seu corpo. 
+''')
+
+boss2_p9 = str('''
+            Seus cabelos foram tomados pela energia e tranformados em raios que podem acertar algo de muito longe.
+            E suas mãos com dedos longos e finos, feito lâminas ponteagudas e muito afiadas, liberam o mesmo choque
+            que passa por todo seu corpo.
+''')
+
+S3_p4 =  str('''
+            Foi uma luta muito difícil, mas você conseguiu vencê-la. Ao derrotar aquela criatura,
+            você percebe que há algo preso em seu pescoço, que antes não era possível ver por causa
+            dos infinitos raios que chamavam a atenção só para eles.
+''')
+
+S3_p5 =  str('''
+            Após esperar até que todos os impulsos elétricos acabassem, você encontra...
+''')
+
+lista_boss_2 = [S3_p1, S3_p2, S3_p3, boss2_p1, boss2_p2, boss2_p3, boss2_p4, boss2_p5, boss2_p6, boss2_p7, boss2_p8, boss2_p9]
 
 def sala_3():
     while True:
         print(porta_trancada)
         escolha = funcoes2.escolher_item()
         if escolha == 'Chave 3':
-            print(S2_p1)
-            print(funcoes2.mostrando_atributos())
-            input('Tecle "enter" para avançar')
-            print(acao_1)
-            resp = input('Responda e tecle "enter" para avançar\n').lower()
-            if resp == 'a':
-                i = 0
-                while True:
-                    print(lista_boss_1[i])
-                    funcoes2.mostrando_atributos()
-                    input('Tecle "enter" para avançar')
-                    sleep(1)
-                    i=i+1
-                    if lista_boss_1[i] == lista_boss_1[-1]:
-                        print(lista_boss_1[-1])
-                        break
-                arma = funcoes2.escolher_item()
-                if arma == 'Glock G42':
-                    dano = 3
-                    funcoes2.luta_3(dano)
-                if arma == 'Faca':
-                    dano = 1
-                    funcoes2.luta_3(dano)
-                if arma == 'Espingarda':
-                    dano = 5
-                    funcoes2.luta_3(dano)
-                break
+            i = 0
+            while True:
+                print(lista_boss_2[i])
+                funcoes2.mostrando_atributos()
+                input('Tecle "enter" para avançar')
+                sleep(1)
+                i=i+1
+                if lista_boss_2[i] == lista_boss_2[-1]:
+                    print(lista_boss_2[-1])
+                    break
+            arma = funcoes2.escolher_item()
+            if arma == 'Glock G42':
+                dano = 3
+                funcoes2.luta_3(dano)
+            if arma == 'Faca':
+                dano = 1
+                funcoes2.luta_3(dano)
+            if arma == 'Espingarda':
+                dano = 5
+                funcoes2.luta_3(dano)
+            break
         else: 
             break
+
+
+def drop_boss_3():
+    print(S3_p4)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    print(S3_p5)
+    print(funcoes2.mostrando_atributos())
+    input('Tecle "enter" para avançar')
+    itens.achando_chave6()
+    input('Tecle "enter" para avançar')
+    itens.achando_carta2()
 
 
 def sala_4():

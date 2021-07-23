@@ -13,8 +13,7 @@ NOMES_ALEATORIOS2 = ["Gabriel", "Isabela", "João"]
 MOCHILA_ARQ = "mochila.txt"
 CINTO_ARQ = "cinto.txt"
 BOOS2 = ['w', 'r', 'l', 'u', 'i', 'd', 'k', 'a', 's', 'c']
-BOOS3 = ['s' 'f' 'b' 'j' 'c' 'b' 'u' 'h' 'f' 'i' 'l' 'e' 'k' 'v', 'a', 'x']
-
+BOSS3 = ['f', 'v', 'e', 'c', 'y', 'z', 'p', 'k', 'o', 'i', 'm', 'h', 'q', 'w']
 
 def guardando_nome(nome):
     caminho = os.path.join(PATH, NOME_ARQ) 
@@ -364,7 +363,7 @@ def luta_2(dano):
             print(f'''
                         =========================================================
                         =                                                       =
-                        =       Você:{len_vida}                      Kadrec:{len_boss}          =
+                        =       Você:{len_vida}                      Kradec:{len_boss}          =
                         =                                                       =
                         =========================================================
             ''')
@@ -388,10 +387,10 @@ def luta_2(dano):
             print('''
                         =====================================
                         =                                   =
-                        =   Kadrec te atacou e sugou suas   =
+                        =   Kradec te atacou e sugou suas   =
                         =      memórias para ele levando    =
                         =       parte da sua vida junto     =
-                        =              2 de Dano            =
+                        =              4 de Dano            =
                         =                                   =
                         =====================================
                 ''')
@@ -405,7 +404,7 @@ def luta_2(dano):
             print(f'''
                         =========================================================
                         =                                                       =
-                        =       Você:{len_vida}                      Kadrec:{len_boss}      =
+                        =       Você:{len_vida}                      Kradec:{len_boss}      =
                         =                                                       =
                         =========================================================
             ''')
@@ -429,9 +428,9 @@ def luta_3(dano):
                         =================================
         ''')
     while True:
-        print(BOOS3[i])
+        print(BOSS3[i])
         resp = input("Digite as letras sem espaço \n")
-        if resp == BOOS3[i]:
+        if resp == BOSS3[i]:
             print(f'''
                         ==============================
                         =                            =
@@ -448,7 +447,7 @@ def luta_3(dano):
             print(f'''
                         =========================================================
                         =                                                       =
-                        =       Você:{len_vida}                      Kadrec:{len_boss}          =
+                        =       Você:{len_vida}                    Sok Zraci:{len_boss}          =
                         =                                                       =
                         =========================================================
             ''')
@@ -463,7 +462,7 @@ def luta_3(dano):
                         =============================
                 ''')
                 break
-            if i == len(BOOS3)-1:
+            if i == len(BOSS3)-1:
                 i=0
                 #print('Voltando')
         else:
@@ -472,10 +471,11 @@ def luta_3(dano):
             print('''
                         =====================================
                         =                                   =
-                        =   Kadrec te atacou e sugou suas   =
-                        =      memórias para ele levando    =
-                        =       parte da sua vida junto     =
-                        =              2 de Dano            =
+                        =   Sok te acerta com um de seus    =
+                        =   raios mortais, o choque passa   =
+                        =   pelo seu corpo causando uma dor =
+                        =      imensiurável e te dando      =
+                        =            6 DE DANO              =
                         =                                   =
                         =====================================
                 ''')
@@ -489,7 +489,7 @@ def luta_3(dano):
             print(f'''
                         =========================================================
                         =                                                       =
-                        =       Você:{len_vida}                      Kadrec:{len_boss}      =
+                        =       Você:{len_vida}                    Sok Zraci:{len_boss}      =
                         =                                                       =
                         =========================================================
             ''')
@@ -497,6 +497,6 @@ def luta_3(dano):
             if len(lista_vida) == 0:
                 print('MORTO')
                 break
-            if i == len(BOOS3)-1:
+            if i == len(BOSS3)-1:
                 i=0
                 #print('Voltando')
