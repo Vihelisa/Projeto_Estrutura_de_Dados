@@ -129,7 +129,7 @@ def explorando_quartos():
         print(f'''
                  ====================================================
 
-                    {hist_parte1.lista_quartos[pos-1]} {hist_parte1.lista_quartos[pos]} {hist_parte1.lista_quartos[pos+1]}
+                    {hist_parte1.lista_quartos[pos-1]}        {hist_parte1.lista_quartos[pos]}        {hist_parte1.lista_quartos[pos+1]}
 
                  ====================================================
         ''')
@@ -152,7 +152,7 @@ def explorando_quartos():
                     Para onde deseja ir?
 
                     l- para ir para frente
-
+                    
                     s- para ir para a escada
 
                     Para escolher um quarto escreva o nome que aparece na tela

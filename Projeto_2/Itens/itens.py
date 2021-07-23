@@ -496,7 +496,7 @@ def achando_cofre2():
             break
         else: 
             print('Senha incorreta!! tente novamente.')
-
+            funcoes2.escolher_item()
 
 def achando_carta():
     carta = 'Carta'

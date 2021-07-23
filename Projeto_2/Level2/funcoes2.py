@@ -313,6 +313,8 @@ def pegar_item_mochila():
                 print(itens.CARTA)
             if 'Tradução da Carta' in escolher:
                 print(itens.TRADU_CARTA)
+            if 'Dica' in escolher:
+                print(itens.DICA)
             reescrevendo_itens_mochila(lista_itens_mochila)
             break
         else:

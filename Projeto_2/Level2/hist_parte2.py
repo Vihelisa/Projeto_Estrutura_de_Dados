@@ -271,14 +271,23 @@ def sala_2():
                     dano = 3
                     funcoes2.luta_2(dano)
                     funcoes2.escolher_item()
+                    lista_vida = funcoes2.mostrando_vida()
+                    if len(lista_vida) > 0:
+                        drop_boss_2()
                 if arma == 'Faca':
                     dano = 1
                     funcoes2.luta_2(dano)
                     funcoes2.escolher_item()
+                    lista_vida = funcoes2.mostrando_vida()
+                    if len(lista_vida) > 0:
+                        drop_boss_2()
                 if arma == 'Espingarda':
                     dano = 5
                     funcoes2.luta_2(dano)
                     funcoes2.escolher_item()
+                    lista_vida = funcoes2.mostrando_vida()
+                    if len(lista_vida) > 0:
+                        drop_boss_2()
                 break
         else: 
             break
@@ -387,14 +396,23 @@ def sala_3():
                 dano = 3
                 funcoes2.luta_3(dano)
                 funcoes2.escolher_item()
+                lista_vida = funcoes2.mostrando_vida()
+                if len(lista_vida) > 0:
+                    drop_boss_3()
             if arma == 'Faca':
                 dano = 1
                 funcoes2.luta_3(dano)
                 funcoes2.escolher_item()
+                lista_vida = funcoes2.mostrando_vida()
+                if len(lista_vida) > 0:
+                    drop_boss_3()
             if arma == 'Espingarda':
                 dano = 5
                 funcoes2.luta_3(dano)
                 funcoes2.escolher_item()
+                lista_vida = funcoes2.mostrando_vida()
+                if len(lista_vida) > 0:
+                    drop_boss_3()
             break
         else: 
             break
@@ -614,16 +632,11 @@ def quartos(quarto):
     if quarto == 'Sala 2':
         funcoes2.movimentacao()
         sala_2()
-        lista_vida = funcoes2.mostrando_vida()
-        if len(lista_vida) > 0:
-            drop_boss_2()
         
     if quarto == 'Sala 3':
         funcoes2.movimentacao()
         sala_3()
-        lista_vida = funcoes2.mostrando_vida()
-        if len(lista_vida) > 0:
-            drop_boss_3()
+        
         
     if quarto == 'Sala 4':
         funcoes2.movimentacao()
@@ -649,7 +662,6 @@ obrigado = str('''
                 
                         Obrigado por jogar!!
             ''')
-
 
 
 gameover = str("""
